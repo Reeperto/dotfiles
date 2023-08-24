@@ -1,2 +1,1 @@
-- Setup Lua path variables properly
 - Homebrew installations

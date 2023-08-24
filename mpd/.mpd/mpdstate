@@ -1,9 +1,8 @@
 sw_volume: 100
 audio_device_state:1:CoreAudio
-audio_device_state:1:my_fifo
-state: pause
-current: 1
-time: 298.672000
+state: play
+current: 6
+time: 119.962000
 random: 0
 repeat: 0
 single: 0
@@ -12,28 +11,15 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:OK Computer/Man of War.flac
-1:OK Computer/Let Down.flac
-2:OK Computer/Fitter Happier.flac
-3:OK Computer/Meeting in the Aisle.flac
-4:OK Computer/Climbing Up the Walls.flac
-5:OK Computer/How I Made My Millions.flac
-6:OK Computer/Electioneering.flac
-7:OK Computer/Paranoid Android.flac
-8:OK Computer/Airbag.flac
-9:OK Computer/No Surprises.flac
-10:OK Computer/I Promise.flac
-11:OK Computer/Palo Alto.flac
-12:OK Computer/Man of War.flac
-13:OK Computer/Polyethylene (Parts 1 & 2).flac
-14:OK Computer/Melatonin.flac
-15:OK Computer/Karma Police.flac
-16:OK Computer/Lift.flac
-17:OK Computer/The Tourist.flac
-18:OK Computer/A Reminder.flac
-19:OK Computer/Lull.flac
-20:OK Computer/Lucky.flac
-21:OK Computer/Subterranean Homesick Alien.flac
-22:OK Computer/Pearly.flac
-23:OK Computer/Exit Music (for a Film).flac
+0:F/Fleetwood Mac/Rumours/I Don't Want to Know.flac
+1:F/Fleetwood Mac/Rumours/Dreams.flac
+2:F/Fleetwood Mac/Rumours/Never Going Back Again.flac
+3:F/Fleetwood Mac/Rumours/Don't Stop.flac
+4:F/Fleetwood Mac/Rumours/Go Your Own Way.flac
+5:F/Fleetwood Mac/Rumours/Songbird.flac
+6:F/Fleetwood Mac/Rumours/The Chain.flac
+7:F/Fleetwood Mac/Rumours/You Make Loving Fun.flac
+8:F/Fleetwood Mac/Rumours/Second Hand News.flac
+9:F/Fleetwood Mac/Rumours/Oh Daddy.flac
+10:F/Fleetwood Mac/Rumours/Gold Dust Woman.flac
 playlist_end

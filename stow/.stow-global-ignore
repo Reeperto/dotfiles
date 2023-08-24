@@ -4,3 +4,7 @@
 
 # Ignore editor temp files
 .+~
+
+# Miscellaneous
+
+mpdstate
