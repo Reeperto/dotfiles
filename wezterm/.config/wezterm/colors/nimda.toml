@@ -1,0 +1,29 @@
+[colors]
+ansi = [
+	"#212121",
+	"#d75f5f",
+	"#87af5f",
+	"#f7ca88",
+	"#8197bf",
+	"#a293cb",
+	"#616161",
+	"#dddddd",
+]
+brights = [
+	"#616161",
+	"#d75f5f",
+	"#87af5f",
+	"#f7ca88",
+	"#8197bf",
+	"#a293cb",
+	"#f7ca88",
+	"#eeeeee",
+]
+
+cursor_bg = '#eeeeee'
+cursor_border = '#bbbbbb'
+background = '#0a0a0a'
+foreground = '#eeeeee'
+
+[metadata]
+name = 'nimda'

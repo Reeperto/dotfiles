@@ -1,0 +1,58 @@
+local wezterm = require("wezterm")
+local main_font = "PragmataPro Mono Liga"
+
+return {
+  -- Font Options
+  font_size = 18,
+  font = wezterm.font {
+    family = main_font,
+    harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
+    italic = false,
+  },
+  window_frame = {
+    font = wezterm.font({
+      family = main_font,
+      weight = "Bold",
+      harfbuzz_features = { "ss08=1" },
+    }),
+    font_size = 13.0,
+    active_titlebar_bg = "#0B0E14",
+    inactive_titlebar_bg = "#0B0E14",
+  },
+  -- Window Settings
+  window_padding = {
+    left = 25,
+    right = 25,
+    top = 25,
+    bottom = 25,
+  },
+  window_background_opacity = 1,
+  max_fps = 120,
+  window_decorations = "RESIZE",
+  hide_tab_bar_if_only_one_tab = true,
+  adjust_window_size_when_changing_font_size = false,
+  -- Colorscheme
+  color_scheme_dirs = { "/Users/reeperto/.config/wezterm/colors/" },
+  color_scheme = "Ayu Dark (Gogh)",
+  colors = {
+    tab_bar = {
+      active_tab = {
+        bg_color = "#0B0E14",
+        fg_color = "#73B8FF",
+        intensity = "Half",
+        underline = "None",
+        italic = true,
+        strikethrough = false,
+      },
+      inactive_tab = {
+        bg_color = "#0B0E14",
+        fg_color = "#11151C",
+      },
+      inactive_tab_edge = "#0B0E14",
+      new_tab = {
+        bg_color = "#0B0E14",
+        fg_color = "#584AA8",
+      },
+    },
+  },
+}

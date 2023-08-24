@@ -1,0 +1,35 @@
+[colors]
+ansi = [
+    '#151512',
+    '#EF2F27',
+    '#519F50',
+    '#FBB829',
+    '#2C78BF',
+    '#584AA8',
+    '#0AAEB3',
+    '#BAA67F',
+]
+brights = [
+    '#918175',
+    '#F75341',
+    '#98BC37',
+    '#FED06E',
+    '#68A8E4',
+    '#8175C9',
+    '#2BE4D0',
+    '#FCE8C3',
+]
+cursor_bg = '#bbbbbb'
+cursor_border = '#bbbbbb'
+cursor_fg = '#ffffff'
+background = '#0a0a0a'
+foreground = '#bbbbbb'
+selection_bg = '#b5d5ff'
+selection_fg = '#000000'
+
+[colors.indexed]
+202 = "#FF5F00"
+208 = "#FF8700"
+
+[metadata]
+name = 'srcery'

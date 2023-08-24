@@ -1,0 +1,9 @@
+[build]
+target-dir = "/Users/reeperto/.local/target"
+rustc-wrapper = "/opt/homebrew/bin/sccache"
+
+[target.aarch64-apple-darwin]
+rustflags = [
+  "-C", "link-arg=-undefined",
+  "-C", "link-arg=dynamic_lookup",
+]
