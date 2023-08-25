@@ -52,11 +52,17 @@ return {
 
 		require("clangd_extensions").setup()
 
-		for server, settings in pairs(configurations) do
-			lspconfig[server].setup({
-				settings = settings,
-				capabilities = capabilities
-			})
+
+		for server, config in pairs(configurations) do
+			if config.full_config then
+				config.capabilities = capabilities
+				lspconfig[server].setup(config)
+			else
+				lspconfig[server].setup({
+					settings = config,
+					capabilities = capabilities
+				})
+			end
 		end
 
 		vim.api.nvim_create_autocmd('LspAttach', {

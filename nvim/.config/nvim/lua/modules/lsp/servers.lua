@@ -26,10 +26,36 @@ M.lua_ls = {
 		}
 	}
 }
+M.tailwindcss = {
+	full_config = true,
+	init_options = {
+		userLanguages = {
+			etlua = "html-eex",
+			["html.etlua"] = "html-eex"
+		}
+	},
+	settings = {
+		tailwindCSS = {
+			includeLanguages = {
+				["html.etlua"] = "html-eex",
+				["etlua"] = "html-eex",
+				["lua"] = "html-eex",
+			},
+			emmetCompletions = true
+		}
+	},
+	filetypes = { "etlua" }
+}
+M.emmet_language_server = {
+	full_config = true,
+	filetypes = { "etlua" },
+}
+M.html = {
+	full_config = true,
+	filetypes = { "etlua" },
+}
 M.tsserver = {}
-M.tailwindcss = {}
-M.html = {}
-M.emmet_language_server = {}
+-- M.unocss = {}
 
 M.texlab = {}
 M.wgsl_analyzer = {}
