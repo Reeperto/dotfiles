@@ -27,6 +27,9 @@ M.lua_ls = {
 	}
 }
 M.tsserver = {}
+M.tailwindcss = {}
+M.html = {}
+M.emmet_language_server = {}
 
 M.texlab = {}
 M.wgsl_analyzer = {}
