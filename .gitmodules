@@ -1,3 +1,6 @@
 [submodule "lua/.lua/addons/pl-definitions"]
 	path = lua/.lua/addons/pl-definitions
 	url = https://github.com/goldenstein64/pl-definitions
+[submodule "lua/.lua/addons/lapis-definitions"]
+	path = lua/.lua/addons/lapis-definitions
+	url = https://github.com/Reeperto/lapis-definitions

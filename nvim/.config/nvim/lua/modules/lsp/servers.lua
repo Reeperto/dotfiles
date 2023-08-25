@@ -17,10 +17,12 @@ M.lua_ls = {
 		workspace = {
 			library = {
 				vim.fn.expand '~/.luarocks/share/lua/5.1',
-				vim.fn.expand '~/.lua/addons/',
-				vim.fn.expand '~/.lua/lib/',
+				vim.fn.expand '~/.lua/addons/pl-definitions/library',
+				vim.fn.expand '~/.lua/addons/lapis-definitions/library'
 			},
-			checkThirdParty = false
+			userThirdParty = {
+				vim.fn.expand '~/.lua/addons'
+			}
 		}
 	}
 }

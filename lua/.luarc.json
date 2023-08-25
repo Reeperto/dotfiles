@@ -1,0 +1,11 @@
+{
+    "workspace.library": [
+        "/Users/reeperto/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/usr/local/Cellar/neovim/0.9.1/share/nvim/runtime/lua",
+        "/Users/reeperto/.luarocks/share/lua/5.1",
+        "/Users/reeperto/.lua/addons/pl-definitions/library",
+        "/Users/reeperto/.lua/addons/lapis-definitions/library",
+        "/Users/reeperto/.dotfiles/lua",
+        "${3rd}/luv/library"
+    ]
+}
