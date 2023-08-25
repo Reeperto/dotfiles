@@ -7,6 +7,10 @@ return {
 		end
 	},
 	{
+		'VaiN474/vim-etlua'
+	},
+	-- Autopairs
+	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
