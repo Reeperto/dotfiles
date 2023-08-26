@@ -1,4 +1,14 @@
 return {
+	-- Telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			local actions = require "telescope.actions"
+
+			require("telescope").setup({
+			})
+		end
+	},
 	-- Editior syntax highlighting
 	{
 		'nvim-treesitter/nvim-treesitter',
@@ -21,6 +31,8 @@ return {
 		'numToStr/Comment.nvim',
 		config = function()
 			require('Comment').setup({
+				padding = true,
+				sticky = true,
 				ignore = '^$',
 				opleader = {
 					line = '<localleader><localleader>',
@@ -28,7 +40,7 @@ return {
 				},
 				toggler = {
 					line = '<localleader><localleader>'
-				}
+				},
 			})
 		end
 	},

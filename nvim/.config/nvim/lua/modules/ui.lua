@@ -16,18 +16,9 @@ return {
 			require("lualine").setup({})
 		end
 	},
+	-- UI Overhaul
 	{
-		"stevearc/dressing.nvim",
-		enabled = false,
-		config = function()
-			require('dressing').setup({
-				input = {
-					enabled = true,
-				},
-				select = {
-					enabled = true,
-				},
-			})
-		end
+		'stevearc/dressing.nvim',
+		opts = {},
 	}
 }
