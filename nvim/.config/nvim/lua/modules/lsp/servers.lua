@@ -11,28 +11,28 @@ M.pyright = {}
 M.lua_ls = {
 	Lua = {
 		runtime = {
-			version = 'Lua 5.1',
-			path = vim.fn.split(vim.fn.getenv('LUA_PATH'), ';')
+			version = "Lua 5.1",
+			path = vim.fn.split(vim.fn.getenv("LUA_PATH"), ";"),
 		},
 		workspace = {
 			library = {
-				vim.fn.expand '~/.luarocks/share/lua/5.1',
-				vim.fn.expand '~/.lua/addons/pl-definitions/library',
-				vim.fn.expand '~/.lua/addons/lapis-definitions/library'
+				vim.fn.expand("~/.luarocks/share/lua/5.1"),
+				vim.fn.expand("~/.lua/addons/pl-definitions/library"),
+				vim.fn.expand("~/.lua/addons/lapis-definitions/library"),
 			},
 			userThirdParty = {
-				vim.fn.expand '~/.lua/addons'
-			}
-		}
-	}
+				vim.fn.expand("~/.lua/addons"),
+			},
+		},
+	},
 }
 M.tailwindcss = {
 	full_config = true,
 	init_options = {
 		userLanguages = {
 			etlua = "html-eex",
-			["html.etlua"] = "html-eex"
-		}
+			["html.etlua"] = "html-eex",
+		},
 	},
 	settings = {
 		tailwindCSS = {
@@ -41,18 +41,18 @@ M.tailwindcss = {
 				["etlua"] = "html-eex",
 				["lua"] = "html-eex",
 			},
-			emmetCompletions = true
-		}
+			emmetCompletions = true,
+		},
 	},
-	filetypes = { "etlua" }
+	filetypes = { "etlua" },
 }
 M.emmet_language_server = {
 	full_config = true,
-	filetypes = { "etlua" },
+	filetypes = { "etlua", "html" },
 }
 M.html = {
 	full_config = true,
-	filetypes = { "etlua" },
+	filetypes = { "etlua", "html" },
 }
 M.tsserver = {}
 -- M.unocss = {}
