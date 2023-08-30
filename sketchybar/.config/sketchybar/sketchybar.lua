@@ -6,13 +6,13 @@ bar.set({
 	-- sticky = true,
 	font_smoothing = true,
 	margin = 15,
-	color = "#FF141617",
-	border_color = "#FFD8A657",
-	border_width = 3,
-	corner_radius = 8,
+	-- color = "#FF141617",
+	-- border_color = "#FFD8A657",
+	-- border_width = 3,
+	-- corner_radius = 8,
 })
 
-util.add()
+item.new("hello", "center")
 
 util.click_script("hello", function(env)
 	local rand_color = string.format("#FF%06X", math.random(0, 255 ^ 3))
