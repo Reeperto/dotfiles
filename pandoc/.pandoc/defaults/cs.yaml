@@ -1,0 +1,6 @@
+from: markdown
+to: pdf
+template: eisvogel
+listings: true
+filters:
+  - include.lua
