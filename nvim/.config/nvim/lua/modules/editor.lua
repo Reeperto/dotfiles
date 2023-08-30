@@ -3,46 +3,49 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		config = function()
-			local actions = require "telescope.actions"
+			-- local actions = require("telescope.actions")
 
-			require("telescope").setup({
-			})
-		end
+			require("telescope").setup({})
+		end,
 	},
 	-- Editior syntax highlighting
 	{
-		'nvim-treesitter/nvim-treesitter',
+		"nvim-treesitter/nvim-treesitter",
 		config = function()
-			require("nvim-treesitter").setup()
-		end
+			require("nvim-treesitter.configs").setup({
+				highlight = {
+					enable = true
+				}
+			})
+		end,
 	},
 	{
-		'VaiN474/vim-etlua'
+		"VaiN474/vim-etlua",
 	},
 	-- Autopairs
 	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
-		end
+		end,
 	},
 	-- Commenting
 	{
-		'numToStr/Comment.nvim',
+		"numToStr/Comment.nvim",
 		config = function()
-			require('Comment').setup({
+			require("Comment").setup({
 				padding = true,
 				sticky = true,
-				ignore = '^$',
+				ignore = "^$",
 				opleader = {
-					line = '<localleader><localleader>',
-					block = '<localleader>b'
+					line = "<localleader><localleader>",
+					block = "<localleader>b",
 				},
 				toggler = {
-					line = '<localleader><localleader>'
+					line = "<localleader><localleader>",
 				},
 			})
-		end
+		end,
 	},
 	-- LaTeX Editing
 	{
@@ -115,6 +118,10 @@ return {
 				"Package hyperref Warning: Token not allowed in a PDF string",
 				[[Overfull \\hbox ([0-9]*.[0-9]*pt too wide) in paragraph at lines]],
 			}
-		end
-	}
+		end,
+	},
+	{
+		"andweeb/presence.nvim",
+		opt = {},
+	},
 }

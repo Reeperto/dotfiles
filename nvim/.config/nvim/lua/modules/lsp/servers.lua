@@ -55,6 +55,8 @@ M.html = {
 	filetypes = { "etlua", "html" },
 }
 M.tsserver = {}
+M.svelte = {}
+M.jsonls = {}
 -- M.unocss = {}
 
 M.texlab = {}
