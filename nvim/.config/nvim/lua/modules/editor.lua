@@ -14,13 +14,28 @@ return {
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				highlight = {
-					enable = true
-				}
+					enable = true,
+				},
 			})
 		end,
 	},
 	{
 		"VaiN474/vim-etlua",
+		ft = "etlua",
+	},
+	{
+		"vim-pandoc/vim-pandoc-syntax",
+		ft = { "markdown" },
+		config = function()
+			vim.g["pandoc#syntax#codeblocks#embeds#langs"] = {
+				"bash",
+				"cpp",
+				"python",
+				"c",
+				"vim",
+				"json",
+			}
+		end,
 	},
 	-- Autopairs
 	{
@@ -50,6 +65,7 @@ return {
 	-- LaTeX Editing
 	{
 		"lervag/vimtex",
+		ft = "tex",
 		config = function()
 			local g = vim.g
 

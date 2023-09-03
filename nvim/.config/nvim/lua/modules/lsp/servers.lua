@@ -36,15 +36,10 @@ M.tailwindcss = {
 	},
 	settings = {
 		tailwindCSS = {
-			includeLanguages = {
-				["html.etlua"] = "html-eex",
-				["etlua"] = "html-eex",
-				["lua"] = "html-eex",
-			},
-			emmetCompletions = true,
+			emmetCompletions = false,
 		},
 	},
-	filetypes = { "etlua" },
+	filetypes = { "etlua", "css", "svelte", "js", "ts", "html" },
 }
 M.emmet_language_server = {
 	full_config = true,
