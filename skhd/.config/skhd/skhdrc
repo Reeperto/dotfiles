@@ -1,13 +1,25 @@
 alt - t : wezterm-gui
 
-rcmd - f : open -a '/Applications/Firefox.app/'
-rcmd - g : open "https://mail.google.com/mail/u/0/#inbox"
+rcmd - f : open -a '/Applications/Thorium.app/'
 rcmd - z : open -a /Applications/Zotero.app
-rcmd - m : prismlauncher -l 1.19.4 & disown
 
 ralt - a : ~/dev/school/coursemanager/main.fish
 ralt - c : alacritty -e sklib
 ralt - s : open -a /Applications/SoundSource.app/Contents/MacOS/SoundSource
+
+:: default
+
+:: gmail @
+cmd - g ; gmail
+gmail < escape ; default
+gmail < 1 : open "https://mail.google.com/mail/u/0/#inbox";\
+			skhd -k "escape";
+gmail < 2 : open "https://mail.google.com/mail/u/1/#inbox";\
+			skhd -k "escape";
+gmail < 3 : open "https://mail.google.com/mail/u/2/#inbox";\
+			skhd -k "escape";
+gmail < 4 : open "https://mail.google.com/mail/u/3/#inbox";\
+			skhd -k "escape";
 
 # YABAI CONFIG
 
