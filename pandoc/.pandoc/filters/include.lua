@@ -1,16 +1,11 @@
-local pattern = [[!include "(.*)"]];
-
 return {
 	{
 		CodeBlock = function(block)
-			local match = block.text:match(pattern)
-			if match then
-				local file_content = io.open(match, "r"):read("*a")
-				block.text = block.text:gsub(pattern, file_content)
-				return block
-			else
-				return block
+			for file in block.text:gmatch([[!include "([^"]*)"]]) do
+				local file_content = io.open(file, "r"):read("*a")
+				block.text = block.text:gsub(string.format([[!include "%s"]], file), file_content)
 			end
+			return block
 		end,
 	},
 }
