@@ -23,6 +23,7 @@ return {
 			end
 			servers.cpp = servers.c
 			servers.objc = servers.c
+			servers.rust = require("formatter.filetypes.rust").rustfmt
 
 			require("formatter").setup({
 				logging = true,

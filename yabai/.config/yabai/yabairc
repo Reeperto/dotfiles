@@ -1,10 +1,11 @@
-# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
+#    external_bar 						all:0:35			\
+
 yabai -m config 											\
 	layout 								bsp					\
-	external_bar 						all:35:0			\
 	top_padding    						15					\
 	bottom_padding 						15					\
 	left_padding   						15					\
@@ -29,9 +30,10 @@ yabai -m rule --add app='^Steam$' manage=off border=off opacity=1.0
 # Opacity Rules
 # yabai -m rule --add app="(Adobe.*)" opacity=1.0
 # yabai -m rule --add app="^FaceTime$" opacity=1.0
-# yabai -m rule --add app='^wezterm-gui$' opacity=0.9
+yabai -m rule --add app='^wezterm-gui$' opacity=0.95
 
 # No managment
+
 yabai -m rule --add app='Soundsource' manage=off
 yabai -m rule --add app='Surfshark' manage=off
 yabai -m rule --add title='Settings' manage=off
@@ -47,3 +49,5 @@ yabai -m rule --add title="^General.*" manage=off
 yabai -m rule --add app="^choose$" manage=off
 yabai -m rule --add app="^refind$" manage=off
 yabai -m rule --add app='^Things$' manage=off
+
+yabai -m rule --add subrole="^AXDialog$" manage=off

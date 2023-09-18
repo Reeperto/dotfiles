@@ -4,7 +4,9 @@ M.rust_analyzer = {}
 M.clangd = {}
 M.zls = {}
 M.gopls = {}
-M.csharp_ls = {}
+M.omnisharp = {
+	enable_roslyn_analyzers = true,
+}
 
 M.pyright = {}
 
