@@ -4,4 +4,6 @@
 Photos\ Library\.photoslibrary
 \$RECYCLE\.BIN
 /*.scriv/Files/
-Lightroom\ Catalog.*
+*Lightroom/*
+*eclipse/java-*
+*Scrivener/*.scriv/Files

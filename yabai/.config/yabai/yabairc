@@ -18,10 +18,10 @@ yabai -m config 											\
 	window_border_blur 					off					\
 	window_border_hidpi 				on 					\
 	active_window_border_color 			0xFFD8A657			\
-	normal_window_border_color 			0xFF141617			\
-	mouse_modifier 						ctrl				\
-	mouse_action1 						move				\
-	mouse_action2 						resize
+	normal_window_border_color 			0xFF141617
+	# mouse_modifier 						ctrl				\
+	# mouse_action1 						move				\
+	# mouse_action2 						resize
 
 # Complex Rules
 # yabai -m rule --add app='^Alacritty$' manage=off border=on opacity=0.9

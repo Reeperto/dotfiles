@@ -1,3 +1,4 @@
+julia 1.9.3
 java zulu-jre-17.42.19
 python 3.11.4
 go 1.20.6
