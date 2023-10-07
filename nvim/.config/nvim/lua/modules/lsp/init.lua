@@ -1,10 +1,11 @@
+local keymap = vim.keymap.set
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
 		-- Prevents weird window shifting when diagnostics appear
 		vim.o.signcolumn = "yes"
 
-		local keymap = vim.keymap.set
 		local opts = { buffer = ev.buf }
 
 		keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -14,7 +15,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap("n", "gr", "<CMD>Glance references<CR>")
 		keymap("n", "gt", "<CMD>Glance type_definitions<CR>", opts)
 		keymap("n", "K", vim.lsp.buf.hover, opts)
-		-- keymap("n", "<Leader>F", vim.lsp.buf.format, opts)
 	end,
 })
 
@@ -29,6 +29,7 @@ return {
 			"DNLHC/glance.nvim",
 			config = function()
 				local glance = require("glance")
+				---@diagnostic disable-next-line
 				glance.setup({
 					border = {
 						enable = true,
@@ -53,6 +54,7 @@ return {
 					group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
 					pattern = "Cargo.toml",
 					callback = function()
+						---@diagnostic disable-next-line
 						cmp.setup.buffer({ sources = { { name = "crates" } } })
 					end,
 				})
@@ -71,22 +73,38 @@ return {
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- Disable formatting for lsp servers as formatting is handled separately
-		local function on_attach(client, _)
+		local function on_attach_formatless(client, _)
 			if client.supports_method("textDocument/formatting") then
 				client.server_capabilities.documentFormattingProvider = false
 			end
+
+			-- Format using formatter.nvim
+			keymap("n", "<Leader>F", "<cmd>Format<CR>")
+		end
+
+		local function on_attach_formatfull(_, _)
+			-- Format using language server's formatting
+			keymap("n", "<Leader>F", vim.lsp.buf.format)
 		end
 
 		for server, config in pairs(configurations) do
+			local attach_function
+
+			if config.formatter then
+				attach_function = on_attach_formatfull
+			else
+				attach_function = on_attach_formatless
+			end
+
 			if config.full_config then
-				config.on_attach = on_attach
+				config.on_attach = attach_function
 				config.capabilities = capabilities
 				lspconfig[server].setup(config)
 			else
 				lspconfig[server].setup({
 					settings = config,
 					capabilities = capabilities,
-					on_attach = on_attach,
+					on_attach = attach_function,
 				})
 			end
 		end

@@ -6,7 +6,7 @@ return {
 		config = function()
 			local util = require("formatter.util")
 
-			servers.lua = require("formatter.filetypes.lua").stylua
+			-- servers.lua = require("formatter.filetypes.lua").stylua
 			servers.c = function()
 				return {
 					exe = "clang-format",

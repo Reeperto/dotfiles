@@ -1,6 +1,8 @@
 local M = {}
 
-M.rust_analyzer = {}
+M.rust_analyzer = {
+	formatter = true,
+}
 M.clangd = {}
 M.zls = {}
 M.gopls = {}
@@ -11,6 +13,7 @@ M.omnisharp = {
 M.pyright = {}
 
 M.lua_ls = {
+	formatter = true,
 	Lua = {
 		runtime = {
 			version = "Lua 5.1",
