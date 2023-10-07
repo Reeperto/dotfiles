@@ -7,20 +7,20 @@ local fmta = require("luasnip.extras.fmt").fmta
 local headers = {
 	lab = [[
 	/*********************************************************
-	 * AUTHOR 			: Eli Griffiths
-	 * Lab #[]          : []
-	 * CLASS 			: CS 002
-	 * SECTION 			: Asynchronous
-	 * Due Date 		: []
+	 * AUTHOR           : Eli Griffiths
+	 * Lab #[]           : []
+	 * CLASS            : CS 002
+	 * SECTION          : Asynchronous
+	 * Due Date         : []
 	 *********************************************************/
 	]],
 	assignment = [[
 	/*********************************************************
-	 * AUTHOR 			: Eli Griffiths
-	 * Assignment #[]   : []
-	 * CLASS 			: CS 002
-	 * SECTION 			: Asynchronous
-	 * Due Date 		: []
+	 * AUTHOR           : Eli Griffiths
+	 * Assignment #[]    : []
+	 * CLASS            : CS 002
+	 * SECTION          : Asynchronous
+	 * Due Date         : []
 	 *********************************************************/
 	]],
 }
@@ -28,7 +28,7 @@ local headers = {
 return {
 	s(
 		"h_assignment",
-		fmta(headers.assignment .. [[
+	fmta(headers.assignment .. [[
 	#include <iostream>
 	using namespace std;
 	/*********************************************************
