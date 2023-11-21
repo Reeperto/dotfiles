@@ -2,6 +2,7 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-omni",
 		"saadparwaiz1/cmp_luasnip",
 	},
 	config = function()
@@ -18,6 +19,7 @@ return {
 			border = 'rounded'
 		}
 
+		---@diagnostic disable-next-line
 		cmp.setup({
 			snippet = {
 				expand = function(args)

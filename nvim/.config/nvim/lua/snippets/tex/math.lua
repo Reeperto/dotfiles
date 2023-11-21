@@ -8,6 +8,7 @@ local fmta = require("luasnip.extras.fmt").fmta
 local in_math = require("snippets.tex.context").in_math
 
 return {
+	s("//", fmta([[\frac{<>}{<>}<>]], { i(1), i(2), i(0) }), in_math),
 	s(
 		{
 			trig = [[((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/]],
@@ -23,17 +24,6 @@ return {
 			}
 		),
 		in_math
-	),
-	s(
-		{
-			trig = "(%a)(%d)",
-			regTrig = true,
-			snippetType = "autosnippet",
-			wordTrig = "false"
-		},
-		f(function(_, snip)
-			return snip.captures[1] .. "_" .. snip.captures[2]
-		end)
 	),
 	s(
 		{
@@ -83,6 +73,18 @@ return {
 	),
 	s(
 		{
+			trig = "(%a)(%d)",
+			regTrig = true,
+			snippetType = "autosnippet",
+			wordTrig = false
+		},
+		f(function(_, snip)
+			return snip.captures[1] .. "_" .. snip.captures[2]
+		end),
+		in_math
+	),
+	s(
+		{
 			trig = "sr",
 			wordTrig = false,
 			snippetType = "autosnippet",
@@ -108,6 +110,32 @@ return {
 		fmta(
 			"_{<>}<>",
 			{ i(1), i(0) }
-		)
-	)
+		),
+		in_math
+	),
+	s(
+		{
+			trig = "\\lim_",
+			snippetType = "autosnippet"
+		},
+		fmta([[\lim_{<>}<>]], { i(1), i(0) }),
+		in_math
+	),
+	-- s(
+	-- 	{
+	-- 		trig = "(.*[^\\])lim",
+	-- 		regTrig = true,
+	-- 		wordTrig = true,
+	-- 		snippetType = "autosnippet"
+	-- 	},
+	-- 	fmta([[<><>]],
+	-- 		{
+	-- 			f(function(_, snip)
+	-- 				return snip.captures[1]
+	-- 			end),
+	-- 			t("\\lim_{n\\to\\infty}")
+	-- 		}
+	-- 	),
+	-- 	in_math
+	-- )
 }
