@@ -32,7 +32,8 @@ return {
 	mappings = {
 		{ key = "]",     mods = "CMD|SHIFT", action = act.ActivateTabRelative(1) },
 		{ key = "[",     mods = "CMD|SHIFT", action = act.ActivateTabRelative(-1) },
-		{ key = "Enter", mods = "CMD",       action = act.ActivateCopyMode },
+		{ key = "Enter", mods = "CMD",       action = act.ToggleFullScreen },
+		-- { key = "Enter", mods = "CMD",       action = act.ActivateCopyMode },
 		{ key = "R",     mods = "CMD|SHIFT", action = act.ReloadConfiguration },
 		{ key = "+",     mods = "CMD",       action = act.IncreaseFontSize },
 		{ key = "-",     mods = "CMD",       action = act.DecreaseFontSize },
