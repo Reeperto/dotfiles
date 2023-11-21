@@ -1,6 +1,6 @@
 alt - t : wezterm-gui
 
-rcmd - f : open -a '/Applications/Thorium.app/'
+rcmd - f : open -a /Applications/Firefox\ Developer\ Edition.app
 rcmd - z : open -a /Applications/Zotero.app
 
 ralt - a : ~/dev/school/coursemanager/main.fish
