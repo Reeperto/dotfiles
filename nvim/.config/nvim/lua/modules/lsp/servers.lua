@@ -31,6 +31,12 @@ M.lua_ls = {
 		},
 	},
 }
+
+M.uiua = {
+	full_config = true,
+	filetypes = { "ua", "uiua" }
+}
+
 M.tailwindcss = {
 	full_config = true,
 	init_options = {
@@ -59,7 +65,7 @@ M.svelte = {}
 M.jsonls = {}
 -- M.unocss = {}
 
-M.texlab = {}
+-- M.texlab = {}
 M.wgsl_analyzer = {}
 M.taplo = {}
 
