@@ -7,5 +7,6 @@
         "/Users/reeperto/.lua/addons/lapis-definitions/library",
         "/Users/reeperto/.dotfiles/lua",
         "${3rd}/luv/library"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }

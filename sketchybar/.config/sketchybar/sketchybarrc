@@ -1,0 +1,9 @@
+#!/usr/bin/env luajit
+package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/share/sketchybar_lua/?.so"
+
+sbar = require("sketchybar")
+
+require("init")
+
+os.execute("sketchybar --hotload on")
+sbar.event_loop()

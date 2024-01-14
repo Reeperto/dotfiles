@@ -3,7 +3,8 @@ alt - t : wezterm-gui
 rcmd - f : open -a /Applications/Firefox\ Developer\ Edition.app
 rcmd - z : open -a /Applications/Zotero.app
 
-ralt - a : ~/dev/school/coursemanager/main.fish
+# ralt - a : ~/dev/school/coursemanager/main.fish
+ralt - a : wezterm-gui -- notes
 ralt - c : alacritty -e sklib
 ralt - s : open -a /Applications/SoundSource.app/Contents/MacOS/SoundSource
 

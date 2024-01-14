@@ -1,5 +1,5 @@
 return {
-    -- Telescope
+    -- Telescope --------------------------------------------------------------
     {
         "nvim-telescope/telescope.nvim",
         config = function()
@@ -8,7 +8,7 @@ return {
             require("telescope").setup({})
         end,
     },
-    -- Editior syntax highlighting
+    -- Editior syntax highlighting --------------------------------------------
     {
         "nvim-treesitter/nvim-treesitter",
         config = function()
@@ -25,6 +25,9 @@ return {
     {
         "VaiN474/vim-etlua",
         ft = "etlua",
+    },
+    {
+        "leissa/vim-acme",
     },
     {
         "vim-pandoc/vim-pandoc",
@@ -44,16 +47,16 @@ return {
                     }
                 end,
             },
-        }
+        },
     },
-    -- Autopairs
+    -- Autopairs --------------------------------------------------------------
     {
         "windwp/nvim-autopairs",
         config = function()
             require("nvim-autopairs").setup()
         end,
     },
-    -- Commenting
+    -- Commenting -------------------------------------------------------------
     {
         "numToStr/Comment.nvim",
         config = function()
@@ -71,11 +74,18 @@ return {
             })
         end,
     },
-    -- Zen Mode
+    -- Image Rendering --------------------------------------------------------
+    -- {
+    --     "edluffy/hologram.nvim",
+    --     config = function ()
+    --         require("hologram").setup()
+    --     end
+    -- },
+    -- Zen Mode ---------------------------------------------------------------
     {
         "folke/zen-mode.nvim",
     },
-    -- LaTeX Editing
+    -- LaTeX Editing ----------------------------------------------------------
     {
         "lervag/vimtex",
         ft = "tex",
@@ -105,6 +115,16 @@ return {
                     name = "ball",
                     mathmode = true,
                     concealchar = "𝔹",
+                },
+                {
+                    name = "R",
+                    mathmode = true,
+                    concealchar = "ℝ",
+                },
+                {
+                    name = "coloneq",
+                    mathmode = true,
+                    concealchar = "≔",
                 }
             }
 

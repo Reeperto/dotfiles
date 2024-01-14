@@ -1,5 +1,5 @@
 if status is-interactive
 end
 
-rtx activate | source
+mise activate | source
 eval (luarocks path)

@@ -39,8 +39,7 @@ return {
 	),
 	s(
 		{
-			trig = "thm",
-			snippetType = "autosnippet"
+			trig = "theorem",
 		},
 		fmta([[
 		\begin{theorem}[<>]

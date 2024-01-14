@@ -164,7 +164,7 @@ local blackboard = { "R", "C", "F", "N", "Q", "Z" }
 
 for _, identifier in ipairs(blackboard) do
     snippets[#snippets + 1] = s(identifier .. identifier,
-        t(string.format("\\mathbb{%s}", identifier)), in_math)
+        t(string.format("\\%s", identifier)), in_math)
 end
 
 return snippets
