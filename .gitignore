@@ -1,3 +1,4 @@
 mpd/.mpd/mpd.db
 mpd/.mpd/mpd.log
 mpd/.mpd/mpdstate
+nvim/.config/nvim/lazy-lock.json

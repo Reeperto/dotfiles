@@ -175,7 +175,11 @@ return {
                 ["_"] = "-xelatex",
             }
 
-            g.vimtex_view_method = "sioyek"
+            if vim.fn.has('macunix') == 1 then
+                g.vimtex_view_method = "sioyek"
+            else
+                g.vimtex_view_method = "zathura"
+            end
 
             -- Latex warnings to ignore
             g.vimtex_quickfix_ignore_filters = {

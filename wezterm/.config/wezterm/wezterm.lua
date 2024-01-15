@@ -2,6 +2,14 @@ local wezterm = require("wezterm")
 local keys = require("keys")
 local font = require("font")
 
+local is_linux = function()
+	return wezterm.target_triple:find("linux") ~= nil
+end
+
+local is_darwin = function()
+	return wezterm.target_triple:find("darwin") ~= nil
+end
+
 return {
 	-- default_prog = { "/opt/homebrew/bin/nu" },
 	window_decorations = "RESIZE",
@@ -12,7 +20,7 @@ return {
 		italic = false,
 	},
 	font_rules = font,
-	font_size = 16,
+	font_size = is_darwin() and 16 or 13,
 	line_height = 1.2,
 	scrollback_lines = 5000,
 	max_fps = 120,
