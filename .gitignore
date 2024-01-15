@@ -2,3 +2,9 @@ mpd/.mpd/mpd.db
 mpd/.mpd/mpd.log
 mpd/.mpd/mpdstate
 nvim/.config/nvim/lazy-lock.json
+cargo/.cargo/registry
+cargo/.cargo/bin
+cargo/.cargo/.package-cache-mutate
+cargo/.cargo/.package-cache
+cargo/.cargo/.crates2.json
+cargo/.cargo/.crates.toml

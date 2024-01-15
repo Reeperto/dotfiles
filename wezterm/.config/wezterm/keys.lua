@@ -45,6 +45,7 @@ return {
 			mods = "CMD|SHIFT",
 			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
 		},
+		{ key = "v",          mods = "CTRL", action = act.PasteFrom("Clipboard") },
 		{ key = "v",          mods = "CMD", action = act.PasteFrom("Clipboard") },
 		{ key = "LeftArrow",  mods = "CMD", action = act.ActivatePaneDirection("Left") },
 		{ key = "RightArrow", mods = "CMD", action = act.ActivatePaneDirection("Right") },

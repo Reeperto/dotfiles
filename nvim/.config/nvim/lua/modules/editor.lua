@@ -27,6 +27,9 @@ return {
         ft = "etlua",
     },
     {
+        "elkowar/yuck.vim"
+    },
+    {
         "leissa/vim-acme",
     },
     {

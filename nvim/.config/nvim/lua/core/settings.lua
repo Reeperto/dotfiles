@@ -6,6 +6,8 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.breakindent = true
 
+vim.o.undofile = true
+
 vim.cmd([[
 filetype on
 filetype plugin on
