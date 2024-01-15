@@ -8,3 +8,6 @@ cargo/.cargo/.package-cache-mutate
 cargo/.cargo/.package-cache
 cargo/.cargo/.crates2.json
 cargo/.cargo/.crates.toml
+luarocks/.luarocks/lib/
+luarocks/.luarocks/lib64/
+luarocks/.luarocks/share/
