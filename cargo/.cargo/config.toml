@@ -1,8 +1,10 @@
+[target.aarch64-unknown-linux-gnu]
 [build]
-target-dir = "/Users/reeperto/.local/target"
-rustc-wrapper = "/opt/homebrew/bin/sccache"
+target-dir = "/home/eeleyes/.local/target"
 
 [target.aarch64-apple-darwin]
+target-dir = "/Users/reeperto/.local/target"
+rustc-wrapper = "/opt/homebrew/bin/sccache"
 rustflags = [
   "-C", "link-arg=-undefined",
   "-C", "link-arg=dynamic_lookup",
