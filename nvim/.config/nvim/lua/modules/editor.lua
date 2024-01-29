@@ -59,6 +59,9 @@ return {
             require("nvim-autopairs").setup()
         end,
     },
+    {
+        "gpanders/nvim-parinfer"
+    },
     -- Commenting -------------------------------------------------------------
     {
         "numToStr/Comment.nvim",

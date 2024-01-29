@@ -16,7 +16,7 @@ return {
 		end
 
 		local window_opts = {
-			border = 'rounded'
+            border = 'rounded'
 		}
 
 		---@diagnostic disable-next-line

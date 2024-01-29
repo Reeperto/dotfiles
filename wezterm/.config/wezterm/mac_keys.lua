@@ -1,32 +1,36 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-wezterm.on('trigger-search-zotero', function(window, pane)
-	window:perform_action(
-		act.SpawnCommandInNewTab {
-			args = { 'fish', '-c', 'sklib' }
-		},
-		pane
-	)
-end)
+local events = {
+    ["trigger-search-zotero"] = function(window, pane)
+        window:perform_action(
+            act.SpawnCommandInNewTab {
+                args = { 'sklib' }
+            },
+            pane
+        )
+    end,
+    ["trigger-search-notes"] = function(window, pane)
+        window:perform_action(
+            act.SpawnCommandInNewTab {
+                args = { 'notes' }
+            },
+            pane
+        )
+    end,
+    ["trigger-fd-to-nvim"] = function(window, pane)
+        window:perform_action(
+            act.SpawnCommandInNewTab {
+                args = { 'nvim (fd -H . | sk)' }
+            },
+            pane
+        )
+    end
+}
 
-wezterm.on('trigger-search-notes', function(window, pane)
-	window:perform_action(
-		act.SpawnCommandInNewTab {
-			args = { 'fish', '-c', 'notes' }
-		},
-		pane
-	)
-end)
-
-wezterm.on('trigger-fd-to-nvim', function(window, pane)
-	window:perform_action(
-		act.SpawnCommandInNewTab {
-			args = { 'fish', '-c', 'nvim (fd -H . | sk)' }
-		},
-		pane
-	)
-end)
+for trigger, _action in pairs(events) do
+    wezterm.on(trigger, _action)
+end
 
 return {
 	mappings = {
@@ -45,7 +49,7 @@ return {
 			mods = "CMD|SHIFT",
 			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
 		},
-		{ key = "v",          mods = "CTRL", action = act.PasteFrom("Clipboard") },
+		-- { key = "v",          mods = "CTRL", action = act.PasteFrom("Clipboard") },
 		{ key = "v",          mods = "CMD", action = act.PasteFrom("Clipboard") },
 		{ key = "LeftArrow",  mods = "CMD", action = act.ActivatePaneDirection("Left") },
 		{ key = "RightArrow", mods = "CMD", action = act.ActivatePaneDirection("Right") },
