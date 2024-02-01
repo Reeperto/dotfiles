@@ -4,3 +4,4 @@ template: eisvogel
 listings: true
 filters:
   - include.lua
+  - diagram-generator.lua
