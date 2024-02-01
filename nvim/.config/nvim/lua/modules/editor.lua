@@ -34,7 +34,7 @@ return {
     },
     {
         "vim-pandoc/vim-pandoc",
-        ft = { "markdown" },
+        ft = { "markdown", "pandoc" },
         dependencies = {
             {
                 "vim-pandoc/vim-pandoc-syntax",
@@ -51,6 +51,11 @@ return {
                 end,
             },
         },
+        config = function()
+            -- vim.g["pandoc#command#use_message_buffers"] = false;
+            -- vim.g["pandoc#command#autoexec_on_writes"] = true
+            -- vim.g["pandoc#command#autoexec_command"] = "Pandoc! pdf -dcs"
+        end
     },
     -- Autopairs --------------------------------------------------------------
     {
