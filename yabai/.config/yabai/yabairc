@@ -12,13 +12,13 @@ yabai -m config 											\
 	right_padding  						15					\
 	window_gap     						15					\
 	window_topmost 						off					\
-	window_shadow 						off					\
-	window_border 						on					\
-	window_border_width 				1					\
-	window_border_blur 					off					\
-	window_border_hidpi 				on 					\
-	active_window_border_color 			0xFFD8A657			\
-	normal_window_border_color 			0xFF141617
+	window_shadow 						off
+	# window_border 						on					\
+	# window_border_width 				1					\
+	# window_border_blur 					off					\
+	# window_border_hidpi 				on 					\
+	# active_window_border_color 			0xFFD8A657			\
+	# normal_window_border_color 			0xFF141617
 	# mouse_modifier 						ctrl				\
 	# mouse_action1 						move				\
 	# mouse_action2 						resize
@@ -51,3 +51,6 @@ yabai -m rule --add app="^refind$" manage=off
 yabai -m rule --add app='^Things$' manage=off
 
 yabai -m rule --add subrole="^AXDialog$" manage=off
+
+# border
+borders active_color=0xFFD8A657 inactive_color=0xFF141617 width=5.0 &
