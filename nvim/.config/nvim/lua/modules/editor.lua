@@ -96,6 +96,18 @@ return {
     {
         "folke/zen-mode.nvim",
     },
+    -- Copilot ----------------------------------------------------------------
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    auto_trigger = true
+                }
+            })
+        end
+    },
     -- LaTeX Editing ----------------------------------------------------------
     {
         "lervag/vimtex",

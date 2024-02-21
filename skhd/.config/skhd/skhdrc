@@ -11,7 +11,7 @@ ralt - s : open -a /Applications/SoundSource.app/Contents/MacOS/SoundSource
 :: default
 
 :: gmail @
-cmd - g ; gmail
+rcmd - g ; gmail
 gmail < escape ; default
 gmail < 1 : open "https://mail.google.com/mail/u/0/#inbox";\
 			skhd -k "escape";

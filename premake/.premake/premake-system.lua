@@ -1,1 +1,1 @@
-require "export-compile-commands"
+-- require "export-compile-commands"
