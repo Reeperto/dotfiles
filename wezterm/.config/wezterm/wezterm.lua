@@ -7,7 +7,7 @@ local is_darwin = function()
     return wezterm.target_triple:find("darwin") ~= nil
 end
 
-local keys = is_darwin() and require("linux_keys") or require("mac_keys")
+local keys = is_darwin() and require("mac_keys") or require("linux_keys")
 
 return {
     -- default_prog = { "/opt/homebrew/bin/nu" },
