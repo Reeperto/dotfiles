@@ -1,26 +1,22 @@
 local wezterm = require("wezterm")
-local linux_keys = require("linux_keys")
-local mac_keys = require("mac_keys")
 local font = require("font")
 
 require("events").setup()
-
--- local is_linux = function()
--- 	return wezterm.target_triple:find("linux") ~= nil
--- end
 
 local is_darwin = function()
     return wezterm.target_triple:find("darwin") ~= nil
 end
 
+local keys = is_darwin() and require("linux_keys") or require("mac_keys")
+
 return {
     -- default_prog = { "/opt/homebrew/bin/nu" },
-    window_decorations = "RESIZE",
+    window_decorations = is_darwin() and "RESIZE" or "NONE",
     color_scheme = 'Gruvbox Material (Gogh)',
     font = wezterm.font {
         family = "PragmataPro Mono Liga",
-        harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
-        italic = false,
+        -- harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
+        -- italic = true,
     },
     font_rules = font,
     font_size = is_darwin() and 16 or 13,
@@ -30,8 +26,8 @@ return {
     adjust_window_size_when_changing_font_size = false,
     hide_tab_bar_if_only_one_tab = true,
     disable_default_key_bindings = true,
-    leader = is_darwin() and mac_keys.leader or linux_keys.leader,
-    keys = is_darwin() and mac_keys.mappings or linux_keys.mappings,
+    leader = keys.leader,
+    keys = keys.mappings,
     use_dead_keys = false,
     inactive_pane_hsb = {
         saturation = 1,

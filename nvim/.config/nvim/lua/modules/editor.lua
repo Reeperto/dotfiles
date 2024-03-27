@@ -57,12 +57,15 @@ return {
             -- vim.g["pandoc#command#autoexec_command"] = "Pandoc! pdf -dcs"
         end
     },
-    -- Autopairs --------------------------------------------------------------
+    -- Pairs and Friends ------------------------------------------------------
     {
         "windwp/nvim-autopairs",
         config = function()
             require("nvim-autopairs").setup()
         end,
+    },
+    {
+        "tpope/vim-surround"
     },
     {
         "gpanders/nvim-parinfer"
