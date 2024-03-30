@@ -1,13 +1,8 @@
 [tools]
-java = [
-    'zulu-jre-17.42.19',
-    'adoptopenjdk-jre-20.0.2+9',
-    'zulu-javafx-17.44.53',
-    'zulu-jre-8.70.0.23'
-]
-
+java = ['zulu-jre-17.42.19', 'zulu-jre-8.70.0.23']
 dotnet = ['7.0.400', '5.0.408']
 python = "3.11.4"
+
 go = '1.20.6'
 zig = '0.11.0'
 
@@ -15,8 +10,10 @@ lua = 'latest'
 luajit = '2.1.0-beta3--3.4.0'
 
 pnpm = 'latest'
-node = "21.5.0"
+node = '21.5.0'
 bun = 'latest'
+
+usage = 'latest'
 
 [settings]
 disable_tools = ['lua']
