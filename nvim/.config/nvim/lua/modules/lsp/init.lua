@@ -78,8 +78,6 @@ return {
                 client.server_capabilities.documentFormattingProvider = false
             end
 
-            -- Format using formatter.nvim
-            keymap("n", "<Leader>F", "<cmd>Format<CR>")
         end
 
         local function on_attach_formatfull(_, _)

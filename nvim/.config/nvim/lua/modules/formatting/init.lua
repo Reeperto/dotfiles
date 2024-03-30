@@ -24,6 +24,8 @@ return {
 			servers.cpp = servers.c
 			servers.objc = servers.c
 			servers.rust = require("formatter.filetypes.rust").rustfmt
+            servers.toml = require("formatter.filetypes.toml").taplo
+            servers.fish = require("formatter.filetypes.fish").fishindent
 
 			require("formatter").setup({
 				logging = true,
