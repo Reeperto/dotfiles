@@ -10,6 +10,13 @@ dotnet = ['7.0.400', '5.0.408']
 python = "3.11.4"
 go = '1.20.6'
 zig = '0.11.0'
+
+lua = 'latest'
+luajit = '2.1.0-beta3--3.4.0'
+
 pnpm = 'latest'
 node = "21.5.0"
 bun = 'latest'
+
+[settings]
+disable_tools = ['lua']
