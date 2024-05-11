@@ -11,6 +11,7 @@ local keys = is_darwin() and require("mac_keys") or require("linux_keys")
 
 return {
     -- default_prog = { "/opt/homebrew/bin/nu" },
+    enable_wayland = false,
     window_decorations = is_darwin() and "RESIZE" or "NONE",
     color_scheme = 'Gruvbox Material (Gogh)',
     font = wezterm.font {
@@ -19,7 +20,8 @@ return {
         -- italic = true,
     },
     font_rules = font,
-    font_size = is_darwin() and 16 or 13,
+    -- font_size = is_darwin() and 16 or 13,
+    font_size = is_darwin() and 16 or 18,
     line_height = 1.2,
     scrollback_lines = 5000,
     max_fps = 120,
