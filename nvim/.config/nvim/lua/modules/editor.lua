@@ -11,6 +11,9 @@ return {
     -- Editior syntax highlighting --------------------------------------------
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            { "nushell/tree-sitter-nu" },
+        },
         config = function()
             require("nvim-treesitter.configs").setup({
                 highlight = {
@@ -21,6 +24,7 @@ return {
                 },
             })
         end,
+        build = ":TSUpdate"
     },
     {
         "VaiN474/vim-etlua",
@@ -57,6 +61,13 @@ return {
             -- vim.g["pandoc#command#autoexec_command"] = "Pandoc! pdf -dcs"
         end
     },
+    -- Lsp Symbol Tree --------------------------------------------------------
+    {
+        "hedyhli/outline.nvim",
+        config = function ()
+            require("outline").setup()
+        end
+    },
     -- Pairs and Friends ------------------------------------------------------
     {
         "windwp/nvim-autopairs",
@@ -66,6 +77,9 @@ return {
     },
     {
         "tpope/vim-surround"
+    },
+    {
+        "tpope/vim-repeat"
     },
     {
         "gpanders/nvim-parinfer"

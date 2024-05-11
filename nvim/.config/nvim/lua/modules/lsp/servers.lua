@@ -19,6 +19,7 @@ M.omnisharp = {
 }
 
 M.pyright = {}
+-- M.pylsp = {}
 
 M.lua_ls = {
     formatter = true,
@@ -79,6 +80,7 @@ M.jsonls = {}
 -- M.unocss = {}
 
 -- M.texlab = {}
+M.glslls = {}
 M.wgsl_analyzer = {}
 M.taplo = {}
 
