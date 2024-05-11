@@ -37,7 +37,7 @@ set statusbar-fg                "#d4be98" # fg0
 set highlight-color             "#d8a657" # yellow
 set highlight-active-color      "#e78a4e" # orange
 
-set default-bg                  "#282828" # bg3
+set default-bg                  "#1d2021" # bg3
 set default-fg                  "#ddc7a1" # fg1
 set render-loading              true
 set render-loading-bg           "#1d2021" # bg0

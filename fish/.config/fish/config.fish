@@ -3,12 +3,9 @@ mise activate fish | source
 if status is-interactive
 end
 
-if test (tty) = /dev/tty1
-    exec Hyprland
-end
-
 # eval (mise x luajit --command "luarocks path") <-- this hangs for some reason :3
-eval (mise x luajit -- luarocks path)
+# eval (mise x luajit -- luarocks path)
+eval (luarocks path)
 
 switch (uname)
     case Linux
@@ -25,3 +22,8 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# Launch Hyprland
+if test (tty) = /dev/tty1
+    exec Hyprland
+end

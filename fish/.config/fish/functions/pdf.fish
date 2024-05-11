@@ -1,4 +1,6 @@
 function pdf
     set file (fd -H ".*\.pdf" | sk)
-    zathura $file > /dev/null & disown
+    if test -n "$file"
+        zathura "$file" 2>&1 >/dev/null & disown
+    end
 end
