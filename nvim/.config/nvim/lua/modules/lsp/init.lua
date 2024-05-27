@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
 
         keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-        keymap("n", "rn", vim.lsp.buf.rename, opts)
+        keymap("n", "<leader>r", vim.lsp.buf.rename, opts)
         keymap("n", "gd", "<CMD>Glance definitions<CR>", opts)
         keymap("n", "gi", "<CMD>Glance implementations<CR>", opts)
         keymap("n", "gr", "<CMD>Glance references<CR>")
@@ -64,7 +64,10 @@ return {
     config = function()
         local configurations = require("modules.lsp.servers")
 
-        require("neodev").setup()
+        require("neodev").setup({
+            library = { plugins = { "nvim-dap-ui" }, types = true }
+        })
+
         require("mason").setup()
         require("mason-lspconfig").setup()
         require("clangd_extensions").setup()
@@ -72,12 +75,32 @@ return {
         local lspconfig = require("lspconfig")
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+        local floating_border = {
+            { "╭", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╮", "FloatBorder" },
+            { "│", "FloatBorder" },
+            { "╯", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╰", "FloatBorder" },
+            { "│", "FloatBorder" },
+        }
+
+        ---@diagnostic disable
+        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+            opts = opts or {}
+            opts.border = opts.border or floating_border
+            return orig_util_open_floating_preview(contents, syntax, opts, ...)
+        end
+
+        ---@diagnostic enable
+
         -- Disable formatting for lsp servers as formatting is handled separately
         local function on_attach_formatless(client, _)
             if client.supports_method("textDocument/formatting") then
                 client.server_capabilities.documentFormattingProvider = false
             end
-
         end
 
         local function on_attach_formatfull(_, _)

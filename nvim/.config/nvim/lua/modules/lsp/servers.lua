@@ -1,5 +1,9 @@
 local M = {}
 
+--------------------------------------------------------------------------------
+-- Compiled Languages
+--------------------------------------------------------------------------------
+
 M.rust_analyzer = {
     formatter = true,
 }
@@ -17,6 +21,10 @@ M.omnisharp = {
         enable_roslyn_analyzers = true,
     }
 }
+
+--------------------------------------------------------------------------------
+-- Interpreted Languages
+--------------------------------------------------------------------------------
 
 M.pyright = {}
 -- M.pylsp = {}
@@ -48,6 +56,12 @@ M.uiua = {
     }
 }
 
+--------------------------------------------------------------------------------
+-- Web Development
+--------------------------------------------------------------------------------
+
+local webdev_fts = { "etlua", "css", "svelte", "js", "ts", "html", "astro", "mjs" }
+
 M.tailwindcss = {
     lsp = {
         init_options = {
@@ -61,23 +75,44 @@ M.tailwindcss = {
                 emmetCompletions = false,
             },
         },
-        filetypes = { "etlua", "css", "svelte", "js", "ts", "html" },
+        filetypes = webdev_fts,
     }
 }
+
 M.emmet_language_server = {
     lsp = {
-        filetypes = { "etlua", "html" },
+        filetypes = webdev_fts
     }
 }
+
 M.html = {
     lsp = {
-        filetypes = { "etlua", "html" },
+        filetypes = webdev_fts,
     }
 }
-M.tsserver = {}
+
+M.astro = {
+    lsp = {
+        filetypes = webdev_fts
+    }
+}
+
+M.tsserver = {
+    lsp = {
+        filetypes = webdev_fts
+    }
+}
+
+M.jsonls = {
+    formatter = true
+}
+
 M.svelte = {}
-M.jsonls = {}
 -- M.unocss = {}
+
+--------------------------------------------------------------------------------
+-- Miscellaneous
+--------------------------------------------------------------------------------
 
 -- M.texlab = {}
 M.glslls = {}
