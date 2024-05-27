@@ -1,7 +1,7 @@
 mise activate fish | source
 
-if status is-interactive
-end
+# if status is-interactive
+# end
 
 # eval (mise x luajit --command "luarocks path") <-- this hangs for some reason :3
 # eval (mise x luajit -- luarocks path)
