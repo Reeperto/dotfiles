@@ -1,57 +1,57 @@
 local wezterm = require("wezterm")
 local font = require("font")
+local utils = require("utils")
+local keys = utils.is_darwin() and require("mac_keys") or require("linux_keys")
 
 require("events").setup()
 
-local is_darwin = function()
-    return wezterm.target_triple:find("darwin") ~= nil
-end
+local font_size = utils.is_darwin() and 16 or 18
+local font_name = "IosevkaTerm Nerd Font"
+local color_scheme = "carbonfox"
 
-local keys = is_darwin() and require("mac_keys") or require("linux_keys")
+local p = wezterm.color.load_scheme(string.format("/home/eeleyes/.dotfiles/wezterm/.config/wezterm/colors/%s.toml", color_scheme))
 
 return {
-    -- default_prog = { "/opt/homebrew/bin/nu" },
     enable_wayland = false,
-    window_decorations = is_darwin() and "RESIZE" or "NONE",
-    color_scheme = 'Gruvbox Material (Gogh)',
+    window_decorations = utils.is_darwin() and "RESIZE" or "NONE",
+    color_scheme = color_scheme,
     font = wezterm.font {
-        family = "PragmataPro Mono Liga",
-        -- harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
-        -- italic = true,
+        family = font_name,
     },
     font_rules = font,
-    -- font_size = is_darwin() and 16 or 13,
-    font_size = is_darwin() and 16 or 18,
-    line_height = 1.2,
-    scrollback_lines = 5000,
-    max_fps = 120,
+    font_size = font_size,
+    line_height = 1.0,
+    scrollback_lines = 1500,
     adjust_window_size_when_changing_font_size = false,
     hide_tab_bar_if_only_one_tab = true,
     disable_default_key_bindings = true,
     leader = keys.leader,
     keys = keys.mappings,
     use_dead_keys = false,
+    window_frame = {
+        font_size = 16,
+        font = wezterm.font({
+            family = font_name,
+            weight = "Bold"
+        }),
+        active_titlebar_bg = p.background,
+        inactive_titlebar_bg = p.background,
+    },
+    colors = {
+        tab_bar = {
+            background = p.background,
+            inactive_tab = {
+                bg_color = p.background,
+                fg_color = p.ansi[1]
+            },
+            active_tab = {
+                bg_color = p.background,
+                fg_color = p.ansi[6]
+            }
+        }
+    },
     inactive_pane_hsb = {
         saturation = 1,
         brightness = 0.6,
     },
-    window_frame = {
-        font = wezterm.font({ family = "PragmataPro Liga", weight = "Regular" }),
-        active_titlebar_bg = "#1d2021",
-        inactive_titlebar_bg = "#1d2021",
-    },
-    colors = {
-        background = "#1d2021",
-        tab_bar = {
-            background = "#1d2021",
-            inactive_tab = {
-                bg_color = "#1d2021",
-                fg_color = "#3c3836"
-            },
-            active_tab = {
-                bg_color = "#1d2021",
-                fg_color = "#d8a657"
-            }
-        }
-    }
 }

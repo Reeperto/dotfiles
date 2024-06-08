@@ -7,79 +7,79 @@ local rep = require("luasnip.extras").rep
 local fmta = require("luasnip.extras.fmt").fmta
 
 return {
-	s(
-		"beg",
-		fmta([[
+    s(
+        "beg",
+        fmta([[
 		\begin{<>}
 			<>
 		\end{<>}
 		]], { i(1), i(0), rep(1) })
-	),
-	s(
-		{
-			trig = "algn",
-			snippetType = "autosnippet"
-		},
-		fmta([[
+    ),
+    s(
+        {
+            trig = "algn",
+            snippetType = "autosnippet"
+        },
+        fmta([[
 		\begin{align*}
 			<>
 		\end{align*}
 		]], { i(0) })
-	),
-	s(
-		{
-			trig = "defn",
-			snippetType = "autosnippet"
-		},
-		fmta([[
+    ),
+    s(
+        {
+            trig = "defn",
+            snippetType = "autosnippet"
+        },
+        fmta([[
 		\begin{definition}[<>]
 			<>
 		\end{definition}
 		]], { i(1), i(0) })
-	),
-	s(
-		{
-			trig = "theorem",
-		},
-		fmta([[
+    ),
+    s(
+        {
+            trig = "theorem",
+        },
+        fmta([[
 		\begin{theorem}[<>]
 			\label{thm:<>}
 			<>
 		\end{theorem}
 		]], { i(1), i(2), i(0) })
-	),
-	s(
-		{
-			trig = "prf",
-			snippetType = "autosnippet"
-		},
-		fmta([[
+    ),
+    s(
+        {
+            trig = "prf",
+            snippetType = "autosnippet"
+        },
+        fmta([[
 		\begin{proof}
 			<>
 		\end{proof}
 		]], { i(0) })
-	),
-	s(
-		{
-			trig = "dm",
-			snippetType = "autosnippet"
-		},
-		fmta([[
+    ),
+    s(
+        {
+            trig = "dm",
+            snippetType = "autosnippet"
+        },
+        fmta([[
 		\[
 			<>
 		.\]<>
 		]], { i(1), i(0) }
-		)
-	),
-	s(
-		{
-			trig = "mk",
-			snippetType = "autosnippet",
-			wordTrig = true,
-		},
-		fmta([[
+        )
+    ),
+    s(
+        {
+            trig = "mk",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        fmta([[
 		$<>$<>
 		]], { i(1), i(0) }
-		)
-	),
+        )
+    ),
 }

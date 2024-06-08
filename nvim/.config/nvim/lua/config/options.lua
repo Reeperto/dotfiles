@@ -1,0 +1,10 @@
+vim.o.termguicolors = true
+vim.o.relativenumber = true
+vim.o.conceallevel = 2
+
+-- Tabs are so confusing :(
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
+vim.cmd[[colorscheme carbonfox]]
