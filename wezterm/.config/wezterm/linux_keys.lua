@@ -12,11 +12,11 @@ return {
         { key = "-",     mods = "CMD",       action = act.DecreaseFontSize },
         { key = "`",     mods = "CMD",       action = act.ResetFontSize },
         { key = "n",     mods = "CMD",       action = act.SpawnWindow },
-        -- {
-        --     key = "P",
-        --     mods = "CMD|SHIFT",
-        --     action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
-        -- },
+        {
+            key = "P",
+            mods = "CMD|SHIFT",
+            action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
+        },
         { key = "LeftArrow",  mods = "CMD|ALT", action = act.ActivatePaneDirection("Left") },
         { key = "RightArrow", mods = "CMD|ALT", action = act.ActivatePaneDirection("Right") },
         { key = "UpArrow",    mods = "CMD|ALT", action = act.ActivatePaneDirection("Up") },

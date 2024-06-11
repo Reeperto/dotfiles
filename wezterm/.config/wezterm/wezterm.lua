@@ -5,8 +5,6 @@ local keys = utils.is_darwin() and require("mac_keys") or require("linux_keys")
 
 require("events").setup()
 
-local font_size = utils.is_darwin() and 16 or 18
-local font_name = "IosevkaTerm Nerd Font"
 local color_scheme = "carbonfox"
 
 local p = wezterm.color.load_scheme(string.format("/home/eeleyes/.dotfiles/wezterm/.config/wezterm/colors/%s.toml", color_scheme))
@@ -16,10 +14,10 @@ return {
     window_decorations = utils.is_darwin() and "RESIZE" or "NONE",
     color_scheme = color_scheme,
     font = wezterm.font {
-        family = font_name,
+        family = font.font_name,
     },
-    font_rules = font,
-    font_size = font_size,
+    font_rules = font.rules,
+    font_size = font.font_size,
     line_height = 1.0,
     scrollback_lines = 1500,
     adjust_window_size_when_changing_font_size = false,
@@ -31,7 +29,7 @@ return {
     window_frame = {
         font_size = 16,
         font = wezterm.font({
-            family = font_name,
+            family = font.font_name,
             weight = "Bold"
         }),
         active_titlebar_bg = p.background,
