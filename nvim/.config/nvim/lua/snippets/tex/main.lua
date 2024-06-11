@@ -13,9 +13,9 @@ local fmta = require("luasnip.extras.fmt").fmta
 local in_math = require("snippets.tex.context").in_math
 
 return {
-	s(
-		"template",
-		fmta([[
+    s(
+        "template",
+        fmta([[
 		\documentclass[12pt,titlepage]{extarticle}
 		\input{../preamble.tex}
 		\renewcommand*\contentsname{Table of Contents}
@@ -40,12 +40,12 @@ return {
 		\listoftheorems[ignoreall,onlynamed={definition},title={List of Definitions}]
 		\end{document}
 		]],
-			{ i(1), i(0) }
-		)
-	),
-	s(
-		"subtemplate",
-		fmta([[
+            { i(1), i(0) }
+        )
+    ),
+    s(
+        "subtemplate",
+        fmta([[
 		\documentclass[../notes.tex]{subfiles}
 		\graphicspath{
 		    {'../figures'}
@@ -56,7 +56,7 @@ return {
 		\begin{document}
 		\end{document}
 		]],
-			{ i(0) }
-		)
-	),
+            { i(0) }
+        )
+    ),
 }
