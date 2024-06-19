@@ -5,9 +5,11 @@ local keys = utils.is_darwin() and require("mac_keys") or require("linux_keys")
 
 require("events").setup()
 
+local scheme_path = utils.is_darwin() and "/Users/reeperto/.config/wezterm/colors/carbonfox.toml" or "/home/eeleyes/.dotfiles/wezterm/.config/wezterm/colors/%s.toml"
+
 local color_scheme = "carbonfox"
 
-local p = wezterm.color.load_scheme(string.format("/home/eeleyes/.dotfiles/wezterm/.config/wezterm/colors/%s.toml", color_scheme))
+local p = wezterm.color.load_scheme(string.format(scheme_path, color_scheme))
 
 return {
     enable_wayland = false,
