@@ -9,9 +9,17 @@
 ---@type table<string, LspSettings>
 local M = {}
 
+M.neocmake = {
+    mason = true,
+}
+
 M.clangd = {
     mason = false,
     separate_formatter = true,
+}
+
+M.zls = {
+    mason = true
 }
 
 M.ols = {
@@ -19,6 +27,10 @@ M.ols = {
     settings = {
         cmd = "ols"
     }
+}
+
+M.pyright = {
+    mason = true
 }
 
 M.lua_ls = {

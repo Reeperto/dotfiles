@@ -1,9 +1,17 @@
+---@type LazySpec
 return {
+    {
+        "nvimdev/lspsaga.nvim",
+        dependencies = { "neovim/nvim-lspconfig" },
+        config = function()
+            require('lspsaga').setup({})
+        end,
+    },
     {
         "neovim/nvim-lspconfig",
         -- event = "LazyFile",
         dependencies = {
-            { "folke/neoconf.nvim",               cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
+            { "folke/neoconf.nvim",               cmd = "Neoconf", config = true, dependencies = { "nvim-lspconfig" } },
             { "folke/neodev.nvim",                opts = {} },
             { "williamboman/mason.nvim" },
             { "williamboman/mason-lspconfig.nvim" },

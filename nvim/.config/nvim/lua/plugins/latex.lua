@@ -85,7 +85,8 @@ return {
             }
 
             g.vimtex_compiler_latexmk_engines = {
-                ["_"] = "-xelatex",
+                -- ["_"] = "-xelatex",
+                ["_"] = "-lualatex",
             }
 
             if vim.fn.has('macunix') == 1 then

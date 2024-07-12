@@ -142,5 +142,17 @@ return {
                 ["text_highlight_group"] = "Normal",        --default
             })
         end
-    }
+    },
+    {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end
+    },
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup()
+        end,
+    },
 }

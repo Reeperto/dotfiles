@@ -20,20 +20,6 @@ local function confirm(opts)
     end
 end
 
-local function auto_brackets(entry)
-    local cmp = require("cmp")
-    local Kind = cmp.lsp.CompletionItemKind
-    local item = entry:get_completion_item()
-    if vim.tbl_contains({ Kind.Function, Kind.Method }, item.kind) then
-        local cursor = vim.api.nvim_win_get_cursor(0)
-        local prev_char = vim.api.nvim_buf_get_text(0, cursor[1] - 1, cursor[2], cursor[1] - 1, cursor[2] + 1, {})[1]
-        if prev_char ~= "(" and prev_char ~= ")" then
-            local keys = vim.api.nvim_replace_termcodes("()<left>", false, false, true)
-            vim.api.nvim_feedkeys(keys, "i", true)
-        end
-    end
-end
-
 ---@param snippet string
 ---@param fn fun(placeholder:Placeholder):string
 ---@return string
@@ -88,7 +74,15 @@ return {
         opts = function()
             vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
             local cmp = require("cmp")
+            local luasnip = require("luasnip")
             local defaults = require("cmp.config.default")()
+
+            local has_words_before = function()
+                unpack = unpack or table.unpack
+                local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+                return col ~= 0 and
+                    vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+            end
 
             ---@type cmp.ConfigSchema
             return {
@@ -96,14 +90,30 @@ return {
                     completeopt = "menu,menuone,noinsert",
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-                    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        elseif luasnip.expand_or_locally_jumpable() then
+                            luasnip.expand_or_jump()
+                        elseif has_words_before() then
+                            confirm()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        elseif luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
                     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                    ["<C-Space>"] = cmp.mapping.complete(),
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<CR>"] = confirm(),
-                    ["<S-CR>"] = confirm({ behavior = cmp.ConfirmBehavior.Replace }),
                     ["<C-CR>"] = function(fallback)
                         cmp.abort()
                         fallback()
@@ -124,22 +134,39 @@ return {
                 sorting = defaults.sorting,
             }
         end,
-        ---@param opts cmp.ConfigSchema | {auto_brackets?: string[]}
+        ---@param opts cmp.ConfigSchema
         config = function(_, opts)
             for _, source in ipairs(opts.sources) do
                 source.group_index = source.group_index or 1
             end
 
             local cmp = require("cmp")
+
             cmp.setup(opts)
-            cmp.event:on("confirm_done", function(event)
-                if vim.tbl_contains(opts.auto_brackets or {}, vim.bo.filetype) then
-                    auto_brackets(event.entry)
-                end
-            end)
+
             cmp.event:on("menu_opened", function(event)
                 add_missing_snippet_docs(event.window)
             end)
+
+            local handlers = require('nvim-autopairs.completion.handlers')
+            local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+            cmp.event:on(
+                'confirm_done',
+                cmp_autopairs.on_confirm_done({
+                    filetypes = {
+                        ["*"] = {
+                            ["("] = {
+                                kind = {
+                                    cmp.lsp.CompletionItemKind.Function,
+                                    cmp.lsp.CompletionItemKind.Method,
+                                },
+                                handler = handlers["*"]
+                            }
+                        },
+                        tex = false
+                    }
+                })
+            )
         end,
     }
 }
