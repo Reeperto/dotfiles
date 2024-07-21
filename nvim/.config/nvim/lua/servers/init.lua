@@ -64,4 +64,12 @@ M.tsserver = {
     mason = true
 }
 
+M.tailwindcss = {
+    mason = true
+}
+
+M.svelte = {
+    mason = true
+}
+
 return M
