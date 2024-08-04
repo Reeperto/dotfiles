@@ -19,7 +19,7 @@ M.clangd = {
 }
 
 M.zls = {
-    mason = true
+    mason = false
 }
 
 M.ols = {

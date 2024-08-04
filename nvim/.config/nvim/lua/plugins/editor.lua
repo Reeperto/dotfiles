@@ -146,7 +146,20 @@ return {
     {
         "numToStr/Comment.nvim",
         config = function()
-            require("Comment").setup()
+            ---@diagnostic disable-next-line: missing-fields
+            require("Comment").setup({
+                padding = true,
+                sticky = true,
+                ignore = "^$",
+                opleader = {
+                    line = "<localleader><localleader>",
+                    block = "<localleader>b",
+                },
+                ---@diagnostic disable-next-line: missing-fields
+                toggler = {
+                    line = "<localleader><localleader>",
+                },
+            })
         end
     },
     {
