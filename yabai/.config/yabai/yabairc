@@ -1,56 +1,86 @@
-launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
+#!/usr/bin/env luajit
 
-# 	external_bar 						all:35:0			\
-	
-yabai -m config 											\
-	layout 								bsp					\
-	top_padding    						15					\
-	bottom_padding 						15					\
-	left_padding   						15					\
-	right_padding  						15					\
-	window_gap     						15					\
-	window_topmost 						off					\
-	window_shadow 						off
-	# window_border 						on					\
-	# window_border_width 				1					\
-	# window_border_blur 					off					\
-	# window_border_hidpi 				on 					\
-	# active_window_border_color 			0xFFD8A657			\
-	# normal_window_border_color 			0xFF141617
-	# mouse_modifier 						ctrl				\
-	# mouse_action1 						move				\
-	# mouse_action2 						resize
+local format = string.format
 
-# Complex Rules
-# yabai -m rule --add app='^Alacritty$' manage=off border=on opacity=0.9
-yabai -m rule --add app='^Steam$' manage=off border=off opacity=1.0
+local function yabai(cmd)
+    os.execute("yabai " .. cmd)
+end
 
-# Opacity Rules
-# yabai -m rule --add app="(Adobe.*)" opacity=1.0
-# yabai -m rule --add app="^FaceTime$" opacity=1.0
-yabai -m rule --add app='^wezterm-gui$' opacity=0.95
+local function run(cmd)
+    os.execute(cmd)
+end
 
-# No managment
+local function serialize_config(conf)
+    local transformed = {}
+    for key, value in pairs(conf) do
+        transformed[#transformed + 1] = format("%s %s", key, value)
+    end
+    return table.concat(transformed, " ")
+end
 
-yabai -m rule --add app='Soundsource' manage=off
-yabai -m rule --add app='Surfshark' manage=off
-yabai -m rule --add title='Settings' manage=off
-yabai -m rule --add title='^sled$' manage=off
-yabai -m rule --add title='^hydrus client media viewer$' manage=off
-yabai -m rule --add title='LuLu' manage=off
-yabai -m rule --add title="^System Preferences$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^System Information$" manage=off
-yabai -m rule --add title="^Preferences$" manage=off
-yabai -m rule --add title="^Digital Colour Meter$" manage=off
-yabai -m rule --add title="^General.*" manage=off
-yabai -m rule --add app="^choose$" manage=off
-yabai -m rule --add app="^refind$" manage=off
-yabai -m rule --add app='^Things$' manage=off
+local function serialize_rule(rule)
+    local transformed = {}
 
-yabai -m rule --add subrole="^AXDialog$" manage=off
+    for key, value in pairs(rule) do
+        if key == "app" or key == "title" or key == "subrole" then
+            -- The value must be escaped in these instances
+            transformed[#transformed + 1] = format("%s='%s'", key, value)
+        else
+            transformed[#transformed + 1] = format("%s=%s", key, value)
+        end
+    end
 
-# border
-borders active_color=0xFFD8A657 inactive_color=0xFF141617 width=5.0 &
+    return table.concat(transformed, " ")
+end
+
+local config = {
+    ["layout"] = "bsp",
+    ["top_padding"] = "15",
+    ["bottom_padding"] = "15",
+    ["left_padding"] = "15",
+    ["right_padding"] = "15",
+    ["window_gap"] = "15",
+    ["window_shadow"] = "off",
+    ["window_opacity"] = "on",
+    ["active_window_opacity"] = "1.0",
+    ["normal_window_opacity"] = "0.90",
+    -- ["external_bar "] = "all:35:0",
+    -- ["mouse_modifier "] = "ctrl",
+    -- ["mouse_action1 "] = "move",
+    -- ["mouse_action2 "] = "resize",
+}
+
+run('sudo yabai --load-sa')
+run('borders active_color=0xFF78A9FF inactive_color=0xFF282828 width=5.0 &')
+
+yabai('-m signal --add event=dock_did_restart action="sudo yabai --load-sa"')
+yabai(format('-m config %s', serialize_config(config)))
+
+-- # Complex Rules
+-- # yabai -m rule --add app='^Alacritty$' manage=off border=on opacity=0.9
+-- yabai -m rule --add app='^Steam$' manage=off border=off opacity=1.0
+
+local rules = {
+    { app = "(Adobe.*)",                       opacity = "1.0" },
+    { app = "^FaceTime$",                      opacity = "1.0" },
+    { app = "^wezterm-gui$",                   opacity = "0.95" },
+    { app = "^System Preferences$",            manage = "off" },
+    { app = "^System Information$",            manage = "off" },
+    { app = "Soundsource",                     manage = "off" },
+    { app = "Surfshark",                       manage = "off" },
+    { app = "^choose$",                        manage = "off" },
+    { app = "^refind$",                        manage = "off" },
+    { app = "^Things$",                        manage = "off" },
+    { title = "Settings",                      manage = "off" },
+    { title = "^General.*",                    manage = "off" },
+    { title = "^Preferences$",                 manage = "off" },
+    { title = "^Digital Colour Meter$",        manage = "off" },
+    { title = "LuLu",                          manage = "off" },
+    { title = "^hydrus client ,media viewer$", manage = "off" },
+    { title = "^Syste,m Preferences$",         manage = "off" },
+    { subrole = "^AXDialog$",                  manage = "off" }
+}
+
+for _, rule in pairs(rules) do
+    yabai(format('-m rule --add %s', serialize_rule(rule)))
+end
