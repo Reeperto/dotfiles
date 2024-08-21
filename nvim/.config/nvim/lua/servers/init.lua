@@ -10,12 +10,16 @@
 local M = {}
 
 M.neocmake = {
-    mason = true,
+    mason = false
 }
 
 M.clangd = {
     mason = false,
     separate_formatter = true,
+}
+
+M.rust_analyzer = {
+    mason = false,
 }
 
 M.zls = {
@@ -61,7 +65,12 @@ M.lua_ls = {
 }
 
 M.tsserver = {
-    mason = true
+    mason = true,
+    settings = {
+        implicitProjectConfiguration = {
+            checkJs = true
+        },
+    }
 }
 
 M.tailwindcss = {

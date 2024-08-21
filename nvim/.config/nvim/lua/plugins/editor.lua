@@ -168,4 +168,10 @@ return {
             require("nvim-autopairs").setup()
         end,
     },
+    -- {
+    --     "saecki/crates.nvim",
+    --     config = function()
+    --         require('crates').setup()
+    --     end,
+    -- }
 }

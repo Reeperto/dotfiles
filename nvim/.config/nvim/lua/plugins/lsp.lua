@@ -11,7 +11,7 @@ return {
         "neovim/nvim-lspconfig",
         -- event = "LazyFile",
         dependencies = {
-            { "folke/neoconf.nvim",               cmd = "Neoconf", config = true, dependencies = { "nvim-lspconfig" } },
+            { "folke/neoconf.nvim",               cmd = "Neoconf", config = true },
             { "folke/neodev.nvim",                opts = {} },
             { "williamboman/mason.nvim" },
             { "williamboman/mason-lspconfig.nvim" },
@@ -96,7 +96,8 @@ return {
             Utils.lsp.on_attach(function(_, _)
                 local set = vim.keymap.set
 
-                set("n", "K", vim.lsp.buf.hover, {})
+                set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+                set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
                 set("n", "gd", vim.lsp.buf.definition, {})
                 set("n", "gr", vim.lsp.buf.references, {})
                 set("n", "<leader>r", vim.lsp.buf.rename, {})

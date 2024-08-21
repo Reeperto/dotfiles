@@ -39,9 +39,9 @@ end
 
 ---Gets all attached LSP clients based on opts
 ---@param opts table?
----@return vim.lsp.Client[]
+---@return lsp.Client
 function M.get_clients(opts)
-    return vim.lsp.get_clients(opts)
+    return vim.lsp.get_active_clients(opts)
 end
 
 return M

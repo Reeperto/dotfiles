@@ -90,6 +90,11 @@ return {
                 completion = {
                     completeopt = "menu,menuone,noinsert",
                 },
+                snippet = {
+                    expand = function(args)
+                        require('luasnip').lsp_expand(args.body)
+                    end,
+                },
                 mapping = cmp.mapping.preset.insert({
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
