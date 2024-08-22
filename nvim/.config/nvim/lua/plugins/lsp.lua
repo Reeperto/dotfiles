@@ -102,6 +102,7 @@ return {
                 set("n", "gr", vim.lsp.buf.references, {})
                 set("n", "<leader>r", vim.lsp.buf.rename, {})
                 set("n", "<leader>F", vim.lsp.buf.format, {})
+                set("n", "<leader>ca", vim.lsp.buf.code_action, {})
             end)
 
             -- LazyVim.lsp.setup()

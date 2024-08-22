@@ -81,4 +81,8 @@ M.svelte = {
     mason = true
 }
 
+M.pest_ls = {
+    mason = true
+}
+
 return M
