@@ -20,6 +20,7 @@ return {
 
             servers.cpp = servers.c
             servers.objc = servers.c
+            servers.objcpp = servers.c
 
             servers.rust = require("formatter.filetypes.rust").rustfmt
             servers.toml = require("formatter.filetypes.toml").taplo

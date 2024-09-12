@@ -12,5 +12,6 @@ BraceWrapping:
 EmptyLineBeforeAccessModifier: 'Always'
 IndentAccessModifiers: false
 IncludeBlocks: 'Regroup'
+AlignArrayOfStructures: 'Left'
 InsertBraces: true
 ...

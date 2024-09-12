@@ -1,10 +1,10 @@
 ---@class LspSettings
----@field settings table?
 ---@field mason boolean?
----@field separate_formatter boolean?
+---@field formatter "separate" | "lsp" | "none" | nil
 ---@field enabled boolean?
 ---@field keys LazyKeysSpec[]?
-
+---@field settings table?
+---@field on_attach vim.lsp.client.on_attach_cb?
 
 ---@type table<string, LspSettings>
 local M = {}
@@ -15,7 +15,7 @@ M.neocmake = {
 
 M.clangd = {
     mason = false,
-    separate_formatter = true,
+    formatter = "none",
 }
 
 M.rust_analyzer = {
@@ -33,6 +33,10 @@ M.ols = {
     }
 }
 
+M.wgsl_analyzer = {
+    mason = true
+}
+
 M.pyright = {
     mason = true
 }
@@ -42,9 +46,6 @@ M.lua_ls = {
         Lua = {
             workspace = {
                 checkThirdParty = false,
-            },
-            codeLens = {
-                enable = true,
             },
             completion = {
                 callSnippet = "Replace",
@@ -64,7 +65,7 @@ M.lua_ls = {
     },
 }
 
-M.tsserver = {
+M.ts_ls = {
     mason = true,
     settings = {
         implicitProjectConfiguration = {

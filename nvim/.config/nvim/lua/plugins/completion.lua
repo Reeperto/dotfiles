@@ -156,6 +156,16 @@ return {
 
             local handlers = require('nvim-autopairs.completion.handlers')
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+            local objc_and_objcpp_cmp = {
+                ["("] = {
+                    kind = {
+                        cmp.lsp.CompletionItemKind.Function,
+                    },
+                    handler = handlers["*"]
+                }
+            }
+
             cmp.event:on(
                 'confirm_done',
                 cmp_autopairs.on_confirm_done({
@@ -169,7 +179,9 @@ return {
                                 handler = handlers["*"]
                             }
                         },
-                        tex = false
+                        tex = false,
+                        -- objc = objc_and_objcpp_cmp,
+                        -- objcpp = objc_and_objcpp_cmp,
                     }
                 })
             )

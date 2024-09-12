@@ -41,45 +41,20 @@ return {
                     },
                 },
             },
-            -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-            -- Be aware that you also will need to properly configure your LSP server to
-            -- provide the inlay hints.
             inlay_hints = {
                 enabled = true,
             },
-            -- Enable this to enable the builtin LSP code lenses on Neovim >= 0.10.0
-            -- Be aware that you also will need to properly configure your LSP server to
-            -- provide the code lenses.
-            codelens = {
-                enabled = false,
-            },
-            -- Enable lsp cursor word highlighting
             document_highlight = {
                 enabled = true,
             },
-            -- add any global capabilities here
             capabilities = {},
-            -- options for vim.lsp.buf.format
-            -- `bufnr` and `filter` is handled by the LazyVim formatter,
-            -- but can be also overridden when specified
             format = {
                 formatting_options = nil,
                 timeout_ms = nil,
             },
-            -- LSP Server Settings
             servers = require("servers"),
-            -- you can do any additional lsp server setup here
-            -- return true if you don't want this server to be setup with lspconfig
             ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
-            setup = {
-                -- example to setup with typescript.nvim
-                -- tsserver = function(_, opts)
-                --   require("typescript").setup({ server = opts })
-                --   return true
-                -- end,
-                -- Specify * to use this function as a fallback for any server
-                -- ["*"] = function(server, opts) end,
-            },
+            setup = {},
         },
         ---@param opts PluginLspOpts
         config = function(_, opts)
@@ -88,9 +63,6 @@ return {
             require("neodev").setup()
 
             vim.o.signcolumn = "yes"
-
-            -- setup autoformat
-            -- LazyVim.format.register(LazyVim.lsp.formatter())
 
             -- setup keymaps
             Utils.lsp.on_attach(function(_, _)
@@ -197,16 +169,23 @@ return {
 
             for server, server_opts in pairs(servers) do
                 if server_opts then
-                    server_opts = server_opts == nil and {} or server_opts
-
-                    if server_opts.separate_formatter == true then
-                        ---@type vim.lsp.client.on_attach_cb
+                    if server_opts.formatter == "separate" then
                         server_opts.on_attach = function(client, _)
                             if client.supports_method("textDocument/formatting") then
                                 client.server_capabilities.documentFormattingProvider = false
                             end
 
                             vim.keymap.set("n", "<leader>F", "<cmd>FormatLock<CR>", {})
+                        end
+                    end
+
+                    if server_opts.formatter == "none" then
+                        server_opts.on_attach = function(client, _)
+                            if client.supports_method("textDocument/formatting") then
+                                client.server_capabilities.documentFormattingProvider = false
+                            end
+
+                            vim.keymap.set("n", "<leader>F", "", {})
                         end
                     end
 
@@ -227,6 +206,6 @@ return {
                 ),
                 handlers = { setup },
             })
-        end,
+        end
     }
 }
