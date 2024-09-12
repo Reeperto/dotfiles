@@ -63,8 +63,9 @@ yabai(format('-m config %s', serialize_config(config)))
 local rules = {
     { app = "(Adobe.*)",                       opacity = "1.0" },
     { app = "^FaceTime$",                      opacity = "1.0" },
-    { app = "^wezterm-gui$",                   opacity = "0.95" },
+    { app = "^wezterm-gui$",                   opacity = "0.875" },
     { app = "^System Preferences$",            manage = "off" },
+    { app = "^Godot$",                         manage = "off" },
     { app = "^System Information$",            manage = "off" },
     { app = "Soundsource",                     manage = "off" },
     { app = "Surfshark",                       manage = "off" },
@@ -78,7 +79,9 @@ local rules = {
     { title = "LuLu",                          manage = "off" },
     { title = "^hydrus client ,media viewer$", manage = "off" },
     { title = "^Syste,m Preferences$",         manage = "off" },
-    { subrole = "^AXDialog$",                  manage = "off" }
+    { subrole = "^AXDialog$",                  manage = "off" },
+    --
+    { app = "^Xcode$",                         title = ".* | Documentation", manage = "off" },
 }
 
 for _, rule in pairs(rules) do

@@ -9,9 +9,8 @@ return {
     magenta = 0xffc6a0f6,
     grey = 0xff939ab7,
     transparent = 0x00000000,
-
     bar = {
-        bg = 0xd01e1e2e,
+        bg = 0xff161616,
         border = 0xff494d64,
     },
     popup = {
