@@ -4,6 +4,6 @@ include carbonfox
 set font "PragmataPro Liga"
 set selection-clipboard clipboard
 set guioptions ""
-set scroll-step 150
+set scroll-step 5
 
 map <C-i> recolor

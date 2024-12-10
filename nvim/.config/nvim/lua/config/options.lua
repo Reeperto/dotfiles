@@ -12,6 +12,9 @@ vim.cmd[[colorscheme carbonfox]]
 vim.filetype.add({
     extension = {
         m = "objc",
-        mm = "objcpp"
+        mm = "objcpp",
+        c3 = "c3",
+        c3i = "c3",
+        c3t = "c3",
     }
 })

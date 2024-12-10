@@ -72,6 +72,7 @@ local rules = {
     { app = "^choose$",                        manage = "off" },
     { app = "^refind$",                        manage = "off" },
     { app = "^Things$",                        manage = "off" },
+    { app = "CLIP STUDIO PAINT",             manage = "off" },
     { title = "Settings",                      manage = "off" },
     { title = "^General.*",                    manage = "off" },
     { title = "^Preferences$",                 manage = "off" },

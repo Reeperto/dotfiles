@@ -1,3 +1,4 @@
+.DS_Store
 mpd/.mpd/mpd.db
 mpd/.mpd/mpd.log
 mpd/.mpd/mpdstate
