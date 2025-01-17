@@ -85,6 +85,18 @@ return {
     ),
     s(
         {
+            trig = "(^.*})([0-9])",
+            trigEngine = "ecma",
+            snippetType = "autosnippet",
+            -- wordTrig = false
+        },
+        f(function(_, snip)
+            return snip.captures[1] .. "_" .. snip.captures[2]
+        end),
+        in_math
+    ),
+    s(
+        {
             trig = "sr",
             wordTrig = false,
             snippetType = "autosnippet",

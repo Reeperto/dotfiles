@@ -6,8 +6,6 @@ stow -D stow
 stow stow
 
 for dir in */
-	echo "Unstowing $dir"
-	stow -D $dir
 	echo "Restowing $dir"
-	stow $dir
+	stow -R $dir
 end

@@ -7,7 +7,7 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
-vim.cmd[[colorscheme carbonfox]]
+vim.cmd [[colorscheme carbonfox]]
 
 vim.filetype.add({
     extension = {

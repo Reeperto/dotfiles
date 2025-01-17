@@ -33,9 +33,9 @@ M.ols = {
     }
 }
 
-M.wgsl_analyzer = {
-    mason = true
-}
+-- M.wgsl_analyzer = {
+--     mason = true
+-- }
 
 M.pyright = {
     mason = true
