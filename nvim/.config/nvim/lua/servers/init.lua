@@ -65,7 +65,7 @@ M.lua_ls = {
     },
 }
 
-M.ts_ls = {
+M.tsserver = {
     mason = true,
     settings = {
         implicitProjectConfiguration = {

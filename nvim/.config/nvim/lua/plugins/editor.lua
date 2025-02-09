@@ -194,6 +194,12 @@ return {
         --         pattern = [[\b(KEYWORDS)(?::|\(.*\):)]]
         --     }
         -- }
+    },
+    {
+        "andweeb/presence.nvim",
+        config = function ()
+            require("presence").setup({})
+        end
     }
     -- {
     --     "saecki/crates.nvim",
