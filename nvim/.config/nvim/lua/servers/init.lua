@@ -65,7 +65,7 @@ M.lua_ls = {
     },
 }
 
-M.tsserver = {
+M.ts_ls = {
     mason = true,
     settings = {
         implicitProjectConfiguration = {
@@ -96,6 +96,10 @@ M.svelte = {
 }
 
 M.pest_ls = {
+    mason = true
+}
+
+M.cssls = {
     mason = true
 }
 
