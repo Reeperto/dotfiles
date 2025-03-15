@@ -10,6 +10,10 @@ local function run(cmd)
     os.execute(cmd)
 end
 
+local function run_async(cmd)
+    io.popen(cmd)
+end
+
 local function serialize_config(conf)
     local transformed = {}
     for key, value in pairs(conf) do
@@ -32,6 +36,9 @@ local function serialize_rule(rule)
 
     return table.concat(transformed, " ")
 end
+
+local rc_path = arg[0]:match([[^(.*)/]])
+run_async(format('%s/yabai-watcher %s', rc_path, rc_path))
 
 local config = {
     ["layout"] = "bsp",
@@ -63,7 +70,7 @@ yabai(format('-m config %s', serialize_config(config)))
 local rules = {
     { app = "(Adobe.*)",                       opacity = "1.0" },
     { app = "^FaceTime$",                      opacity = "1.0" },
-    { app = "^wezterm-gui$",                   opacity = "0.875" },
+    { app = "^wezterm-gui$",                   opacity = "1.0" },
     { app = "^System Preferences$",            manage = "off" },
     { app = "^Godot$",                         manage = "off" },
     { app = "^System Information$",            manage = "off" },
@@ -72,7 +79,8 @@ local rules = {
     { app = "^choose$",                        manage = "off" },
     { app = "^refind$",                        manage = "off" },
     { app = "^Things$",                        manage = "off" },
-    { app = "CLIP STUDIO PAINT",             manage = "off" },
+    { app = "CLIP STUDIO PAINT",               manage = "off" },
+    -----------------------------------------------------------
     { title = "Settings",                      manage = "off" },
     { title = "^General.*",                    manage = "off" },
     { title = "^Preferences$",                 manage = "off" },
@@ -80,8 +88,9 @@ local rules = {
     { title = "LuLu",                          manage = "off" },
     { title = "^hydrus client ,media viewer$", manage = "off" },
     { title = "^Syste,m Preferences$",         manage = "off" },
+    -----------------------------------------------------------
     { subrole = "^AXDialog$",                  manage = "off" },
-    --
+    -----------------------------------------------------------
     { app = "^Xcode$",                         title = ".* | Documentation", manage = "off" },
 }
 
