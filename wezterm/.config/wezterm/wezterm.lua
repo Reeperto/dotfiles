@@ -1,26 +1,21 @@
 local wezterm = require("wezterm")
-local font = require("font")
-local utils = require("utils")
-local keys = utils.is_darwin() and require("mac_keys") or require("linux_keys")
-
+local color = wezterm.color
 require("events").setup()
 
-local scheme_path = utils.is_darwin() and "/Users/reeperto/.config/wezterm/colors/carbonfox.toml" or "/home/eeleyes/.dotfiles/wezterm/.config/wezterm/colors/%s.toml"
+local utils = require("utils")
+local font = require("font")
+local keys = utils.is_darwin() and require("mac_keys") or require("linux_keys")
+local scheme = require("colors.kanagawa-dragon")
 
-local color_scheme = "carbonfox"
-
-local p = wezterm.color.load_scheme(string.format(scheme_path, color_scheme))
-
-return {
+local config = {
     enable_wayland = false,
     window_decorations = utils.is_darwin() and "RESIZE" or "NONE",
-    color_scheme = color_scheme,
     font = wezterm.font {
         family = font.font_name,
     },
     font_rules = font.rules,
     font_size = font.font_size,
-    line_height = 1.0,
+    line_height = 1,
     scrollback_lines = 1500,
     adjust_window_size_when_changing_font_size = false,
     hide_tab_bar_if_only_one_tab = true,
@@ -34,19 +29,19 @@ return {
             family = font.font_name,
             weight = "Bold"
         }),
-        active_titlebar_bg = p.background,
-        inactive_titlebar_bg = p.background,
+        active_titlebar_bg = scheme.colors.background,
+        inactive_titlebar_bg = scheme.colors.background,
     },
     colors = {
         tab_bar = {
-            background = p.background,
+            background = scheme.colors.background,
             inactive_tab = {
-                bg_color = p.background,
-                fg_color = p.ansi[1]
+                bg_color = scheme.colors.background,
+                fg_color = color.parse(scheme.colors.background):lighten(0.1)
             },
             active_tab = {
-                bg_color = p.background,
-                fg_color = p.ansi[6]
+                bg_color = scheme.colors.background,
+                fg_color = scheme.colors.ansi[4]
             }
         }
     },
@@ -55,3 +50,7 @@ return {
         brightness = 0.6,
     },
 }
+
+utils.tbl_merge(config, scheme)
+
+return config
