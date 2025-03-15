@@ -1,4 +1,4 @@
-alt - t : wezterm-gui
+alt - t : open -na wezterm
 
 rcmd - f : open -a /Applications/Firefox\ Developer\ Edition.app
 rcmd - z : open -a /Applications/Zotero.app
