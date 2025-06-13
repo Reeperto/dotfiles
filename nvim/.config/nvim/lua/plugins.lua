@@ -20,10 +20,17 @@ return {
     },
     {
         "folke/lazydev.nvim",
+        dependencies = {
+            "justinsgithub/wezterm-types"
+        },
         ft = "lua",
-        config = function()
-            require("lazydev").setup()
-        end
+        opts = {
+            library = {
+                { path = "wezterm-types", mods = { "wezterm" } },
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                { path = "~/dev/c/mc-server"}
+            }
+        }
     },
     {
         "echasnovski/mini.nvim",
@@ -40,6 +47,7 @@ return {
             require("mini.align").setup({})
         end
     },
+    { "folke/zen-mode.nvim" },
     {
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -99,6 +107,39 @@ return {
                     { name = "lazydev", group_index = 0 }
                 }
             }
+        end
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-telescope/telescope-ui-select.nvim"
+        },
+        lazy = false,
+        config = function ()
+            require("telescope").setup({
+                extensions = {
+                    ["ui-select"] = {
+                        specific_opts = {
+                            ["tree-walk-selector"] = {}
+                        }
+                    }
+                }
+            })
+
+            require("telescope").load_extension("ui-select")
+
+            local builtin = require("telescope.builtin")
+            local map = vim.keymap.set
+
+            map("n", "<leader>sf", function ()
+                local git_path = vim.fn.finddir(".git", ";/Users/reeperto")
+
+                if git_path ~= "" then
+                    builtin.git_files()
+                else
+                    builtin.find_files()
+                end
+            end)
         end
     },
     {

@@ -6,6 +6,7 @@ local configs = {
     ols = {},
     lua_ls = {},
     clangd = {},
+    rust_analyzer = {},
     ts_ls = {
         filetypes = {
             "html",

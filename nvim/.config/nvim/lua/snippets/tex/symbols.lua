@@ -15,6 +15,22 @@ local snippets = {
     ),
     s(
         {
+            trig = "partial",
+            snippetType = "autosnippet"
+        },
+        t("\\partial"),
+        in_math
+    ),
+    s(
+        {
+            trig = "nabla",
+            snippetType = "autosnippet"
+        },
+        t("\\nabla"),
+        in_math
+    ),
+    s(
+        {
             trig = "==",
             snippetType = "autosnippet"
         },
