@@ -13,7 +13,7 @@ package.path = string.format("%s;%s/?.lua;%s/?/init.lua", package.path, config_p
 _G.sbar = require("sketchybar")
 
 sbar.begin_config()
-require("init")
+require("bar")
 sbar.hotload(true)
 sbar.end_config()
 

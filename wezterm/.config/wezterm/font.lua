@@ -4,7 +4,7 @@ local utils = require("utils")
 local name = "IosevkaTerm Nerd Font"
 
 return {
-    font_size = utils.is_darwin() and 16 or 18,
+    font_size = 18,
     font_name = name,
     rules = {
         -- {

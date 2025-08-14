@@ -1,13 +1,13 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+---@type table<string, fun(_: Window, _: Pane)>
 local events = {
     ["trigger-search-zotero"] = function(window, pane)
         window:perform_action(
             act.SpawnCommandInNewTab {
                 args = { 'sklib' }
-            },
-            pane
+            }
         )
     end,
     ["trigger-search-notes"] = function(window, pane)

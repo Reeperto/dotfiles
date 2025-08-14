@@ -39,9 +39,16 @@
 ---@field width              (SPositiveInt | "dynamic")?     Makes the item use a fixed width given in points
 ---@field scroll_texts       SBoolean?                       Controls the automatic scroll of all items texts, which are truncated by the max_chars property
 ---@field blur_radius        SPositiveInt?                   The blur radius applied to the background of the item
----@field icon               TextProperties?
+---
+---@field icon               (string | TextProperties)?
 ---@field label              TextProperties?
 ---@field background         BackgroundProperties?
+---
+---@field script             string?
+---@field click_script       string?
+---@field update_freq        SPositiveInt?
+---@field updates            (SBoolean | "when_shown")?
+---@field mach_helper        string?
 
 ---@class TextProperties
 ---@field string          string?                         Sets the text to the specified string
@@ -112,8 +119,20 @@
 ---@class SbarGraph : SbarItem
 ---@field push fun(self: SbarGraph, floats: number[])
 
+---@type Sketchybar
+---@global sbar
+sbar = nil
+
 ---@class Sketchybar
 local Sbar = {}
+
+Sbar.begin_config = function() end
+Sbar.end_config = function() end
+Sbar.event_loop = function() end
+
+---@param enabled boolean
+Sbar.hotload = function(enabled) end
+
 
 ---Executes a shell command without blocking the event handler. An optional `callback`
 ---can be supplied that can use the result. If the result of the shell command

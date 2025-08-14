@@ -1,4 +1,4 @@
 {
     "runtime.version": "Lua 5.4",
-    "workspace.library": ["./sketchybarrc", "?.lua"]
+    "workspace.library": ["sketchybarrc", "?.lua"]
 }

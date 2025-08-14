@@ -45,10 +45,18 @@ local config = {
             }
         }
     },
-    inactive_pane_hsb = {
-        saturation = 1,
-        brightness = 0.6,
-    },
+    -- inactive_pane_hsb = {
+    --     saturation = 1,
+    --     brightness = 0.6,
+    -- },
+}
+
+config.ssh_domains = {
+    {
+        name = 'internship',
+        remote_address = 'api.btgenomics.com',
+        username = 'eli'
+    }
 }
 
 utils.tbl_merge(config, scheme)

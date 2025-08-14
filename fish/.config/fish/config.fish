@@ -3,7 +3,7 @@ autovenv
 
 # eval (mise x luajit --command "luarocks path") <-- this hangs for some reason :3
 # eval (mise x luajit -- luarocks path)
-eval (luarocks path)
+# eval (luarocks path)
 
 switch (uname)
     case Linux
