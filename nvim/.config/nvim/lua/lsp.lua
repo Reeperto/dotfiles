@@ -3,9 +3,9 @@ require("mason-lspconfig").setup()
 local lspconfig = require("lspconfig")
 
 local configs = {
-    ols = {},
-    lua_ls = {},
     clangd = {},
+    lua_ls = {},
+    ols = {},
     rust_analyzer = {},
     ts_ls = {
         filetypes = {

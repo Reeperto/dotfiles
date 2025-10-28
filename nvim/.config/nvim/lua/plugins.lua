@@ -14,6 +14,10 @@ return {
                     enable = true,
                     disable = { "tex", "latex" },
                     additional_vim_regex_highlighting = { "latex", "tex" },
+                },
+                indent = { enable = true },
+                autopairs = {
+                    enable = true
                 }
             })
         end
@@ -28,7 +32,6 @@ return {
             library = {
                 { path = "wezterm-types", mods = { "wezterm" } },
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                { path = "~/dev/c/mc-server"}
             }
         }
     },
@@ -44,10 +47,10 @@ return {
                 }
             })
 
-            require("mini.align").setup({})
+            require("mini.pairs").setup()
+            require("mini.align").setup()
         end
     },
-    { "folke/zen-mode.nvim" },
     {
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -86,7 +89,7 @@ return {
                         if cmp.visible() then
                             cmp.select_next_item()
                         elseif luasnip.locally_jumpable(1) then
-                           luasnip.jump(1)
+                            luasnip.jump(1)
                         else
                             fallback()
                         end
@@ -132,6 +135,10 @@ return {
             local map = vim.keymap.set
 
             map("n", "<leader>sf", function ()
+                builtin.find_files()
+            end)
+
+            map("n", "<leader>sg", function ()
                 local git_path = vim.fn.finddir(".git", ";/Users/reeperto")
 
                 if git_path ~= "" then
@@ -154,6 +161,10 @@ return {
                 paths = {vim.fn.stdpath("config") .. "/lua/snippets"}
             })
         end
+    },
+    {
+        "danymat/neogen",
+        config = true
     },
     {
         "lervag/vimtex",
@@ -251,4 +262,5 @@ return {
             end
         end,
     },
+    { "folke/zen-mode.nvim" },
 }
