@@ -1,0 +1,6 @@
+WRN 2026-06-04T01:39:55.427 ?.81549    server_start:199: Failed to start server: operation not permitted: /var/folders/mw/kx4kq3y900q8_kfzjl6p1tmw0000gn/T/nvim.reeperto/vFfaU7/nvim.81549.0
+WRN 2026-06-04T01:42:29.289 ?.81647    server_start:199: Failed to start server: operation not permitted: /var/folders/mw/kx4kq3y900q8_kfzjl6p1tmw0000gn/T/nvim.reeperto/tETegU/nvim.81647.0
+WRN 2026-06-04T01:42:46.448 ?.81654    server_start:199: Failed to start server: operation not permitted: /var/folders/mw/kx4kq3y900q8_kfzjl6p1tmw0000gn/T/nvim.reeperto/NLksDU/nvim.81654.0
+WRN 2026-08-14T18:30:03.886 ?.8826     server_start:199: Failed to start server: operation not permitted: /var/folders/mw/kx4kq3y900q8_kfzjl6p1tmw0000gn/T/nvim.reeperto/yDzSOj/nvim.8826.0
+WRN 2026-08-14T18:30:03.898 ?.8822     server_start:199: Failed to start server: operation not permitted: /var/folders/mw/kx4kq3y900q8_kfzjl6p1tmw0000gn/T/nvim.reeperto/Uawsfv/nvim.8822.0
+WRN 2026-08-14T18:32:05.024 ?.9108     server_start:199: Failed to start server: operation not permitted: /var/folders/mw/kx4kq3y900q8_kfzjl6p1tmw0000gn/T/nvim.reeperto/TVABBp/nvim.9108.0
